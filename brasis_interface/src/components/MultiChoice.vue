@@ -50,7 +50,6 @@ export default {
       margin: 0;
       width:75px;
       height: 75px;
-      border-radius: 50%;
       text-transform: uppercase;
       font-size: 10px;
       color: #201b53;
