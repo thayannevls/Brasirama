@@ -85,18 +85,18 @@ export default {
         margin-left 0.3s ease,
         box-shadow 0.3s ease;
 
-    background:#03A9F4;
-    border: solid 1px #1976D2;
+    background:#ff0000;
+    border: solid 1px #ff0000;
     box-shadow:
-        0px 0px 0px #1976D2, 0px 1px 0px #1976D2,
-        0px 1px 0px #1976D2,0px 2px 0px #1976D2,
-        0px 2px 0px #1976D2,0px 3px 0px #1976D2,
-        0px 3px 0px #1976D2,0px 4px 0px #1976D2,
-        0px 4px 0px #1976D2,0px 5px 0px #1976D2,
-        0px 5px 0px #1976D2,0px 6px 0px #1976D2,
-        0px 6px 0px #1976D2,0px 7px 0px #1976D2,
-        0px 7px 0px #1976D2,0px 8px 0px #1976D2,
-        0px 8px 0px #1976D2,0px 9px 0px #1976D2;
+        0px 0px 0px #201b53, 0px 1px 0px #201b53,
+        0px 1px 0px #201b53,0px 2px 0px #201b53,
+        0px 2px 0px #201b53,0px 3px 0px #201b53,
+        0px 3px 0px #201b53,0px 4px 0px #201b53,
+        0px 4px 0px #201b53,0px 5px 0px #201b53,
+        0px 5px 0px #201b53,0px 6px 0px #201b53,
+        0px 6px 0px #201b53,0px 7px 0px #201b53,
+        0px 7px 0px #201b53,0px 8px 0px #201b53,
+        0px 8px 0px #201b53,0px 9px 0px #201b53;
   }
   .mybutton:active {
     transition:
@@ -104,7 +104,7 @@ export default {
         box-shadow 0.0s ease;
         margin-top:10px;
         box-shadow:
-          0px 0px 0px #1976D2,0px 0px 0px #1976D2,
-          0px 0px 0px #1976D2,0px 0px 0px #1976D2;
+          0px 0px 0px #201b53,0px 0px 0px #201b53,
+          0px 0px 0px #201b53,0px 0px 0px #201b53;
   }
 </style>
