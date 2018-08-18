@@ -6,12 +6,14 @@
       <button v-on:click="nextFase">Próxima</button>
     </div>
     <h2>{{ msg }}</h2>
+    <ops-drag/>
     <multichoice></multichoice>
   </div>
 </template>
 
 <script>
 import Lottie from './lottie.vue'
+import OpsDrag from './OpsDrag.vue'
 import * as animationData from '../assets/pinjump.json'
 import animRanges from '../assets/anims.json'
 import MultiChoiceVue from './MultiChoice.vue'
@@ -19,6 +21,7 @@ export default {
   name: 'MainView',
   components: {
     'lottie': Lottie,
+    'ops-drag': OpsDrag,
     'multichoice': MultiChoiceVue
   },
   data () {
