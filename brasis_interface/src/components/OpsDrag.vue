@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2>{{ msg }}</h2>
-    <div>
-      <p class="slider" :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">.----o----.</p>
-    </div>
+    <transition name="fade">
+      <p key="msg" v-if="displayMsg">Só que renda da família a gente não escolhe...</p>
+      <p key="slider" v-else class="slider" :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">.----o----.</p>
+    </transition>
   </div>
 </template>
 
@@ -12,8 +12,9 @@ export default {
   name: 'OpsDrag',
   data () {
     return {
-      msg: 'Escolha a renda',
       moveSlider: false,
+      disabled: false,
+      displayMsg: false,
       x: 0,
       y: 0,
       x0: 0,
@@ -22,7 +23,6 @@ export default {
   },
   mounted: function () {
     var mouseUpdate = (ev) => {
-      console.log(this.moveSlider)
       if (this.moveSlider) {
         this.x = ev.pageX - this.x0
         this.y = ev.pageY - this.y0
@@ -31,15 +31,19 @@ export default {
     document.onmousemove = mouseUpdate
   },
   methods: {
-    drag: function () {
-    },
     mousedown: function (ev) {
       this.x0 = ev.pageX
       this.y0 = ev.pageY
       this.moveSlider = true
+      setTimeout(this.disableDrag, 1000)
     },
     mouseup: function (ev) {
       this.moveSlider = false
+    },
+    disableDrag: function () {
+      this.disabled = true
+      this.displayMsg = true
+      document.onmousemove = null
     },
     getStyle: function () {
       return {
@@ -51,8 +55,14 @@ export default {
 }
 </script>
 
-<style scoped>
-  .slider {
-      position: relative;
-  }
+<style>
+.slider {
+    position: relative;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 2s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
 </style>

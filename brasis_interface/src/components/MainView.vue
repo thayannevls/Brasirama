@@ -5,7 +5,7 @@
       <lottie :options="defaultOptions" :height="400" :width="400" v-on:animCreated="handleAnimation" />
       <button v-on:click="nextFase">Próxima</button>
     </div>
-    <h2>{{ msg }}</h2>
+    <h2 v-if="fase.msg">{{ fase.msg }}</h2>
     <component v-if="fase.component" :is="fase.component"/>
   </div>
 </template>
@@ -30,14 +30,14 @@ export default {
     return {
       faseNum: 0,
       fases: [
-        {name: 'intro'},
-        {name: 'local'},
-        {name: 'sexo'},
-        {name: 'renda', component: OpsDrag},
+        {name: 'intro', msg: 'lá vem você...'},
+        {name: 'local', msg: 'nasceu em João Pessoa'},
+        {name: 'sexo', msg: 'mulher'},
+        {name: 'cor', msg: 'de cor negra'},
+        {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag},
         {name: 'escola', component: Schoolbar},
         {name: 'trabalho', component: MultiChoiceVue}
       ],
-      msg: 'Você nasceu em ...',
       defaultOptions: {
         animationData: animationData,
         autoplay: false,
