@@ -57,6 +57,5 @@ export default {
   .image{
       pointer-events: none;
       width: 50%;
-
   }
 </style>
