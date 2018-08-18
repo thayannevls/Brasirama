@@ -8,7 +8,7 @@
         O TEMPO ACABOU
       </div>
     </div>
-    <div id="barra" v-if="count > 0">
+    <div class="bar" id="barra" v-if="count > 0">
       <progress :value="progressGame" :max="100" show-progress animated></progress>
       <button @click="alterData()">
          Click me!
@@ -44,4 +44,9 @@ export default {
 </script>
 
 <style scoped>
+  .bar{
+    background-color: antiquewhite;
+  }
+  .bar progress {
+  }
 </style>

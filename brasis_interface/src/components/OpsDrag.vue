@@ -2,7 +2,7 @@
   <div>
     <h2>{{ msg }}</h2>
     <div>
-      <p class="slider" :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">.----o----.</p>
+      <img src="/static/image/slider.svg" class="slider" :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">
     </div>
   </div>
 </template>
@@ -54,5 +54,6 @@ export default {
 <style scoped>
   .slider {
       position: relative;
+      width: 50%;
   }
 </style>
