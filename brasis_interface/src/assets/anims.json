@@ -1,13 +1,13 @@
 {
   "intro": {
-    "interval": [0, 10]
+    "interval": [0, 100]
   },
   "local": {
-    "interval": [10, 20],
+    "interval": [100, 200],
     "loop": 2
   },
   "sexo": {
-    "interval": [20, 30],
+    "interval": [200, 300],
     "loop": true
   }
 }

@@ -3,9 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Lottie from '@/components/lottie.vue'
 
 Vue.config.productionTip = false
 
+Vue.component('lottie', Lottie)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
