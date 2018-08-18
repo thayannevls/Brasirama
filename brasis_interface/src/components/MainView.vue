@@ -8,6 +8,7 @@
     <h2>{{ msg }}</h2>
     <ops-drag/>
     <multichoice></multichoice>
+    <schoolbar></schoolbar>
   </div>
 </template>
 
@@ -17,12 +18,15 @@ import OpsDrag from './OpsDrag.vue'
 import * as animationData from '../assets/pinjump.json'
 import animRanges from '../assets/anims.json'
 import MultiChoiceVue from './MultiChoice.vue'
+import Schoolbar from './Schoolbar.vue'
+
 export default {
   name: 'MainView',
   components: {
     'lottie': Lottie,
     'ops-drag': OpsDrag,
-    'multichoice': MultiChoiceVue
+    'multichoice': MultiChoiceVue,
+    'schoolbar': Schoolbar
   },
   data () {
     return {
