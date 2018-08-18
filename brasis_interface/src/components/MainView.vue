@@ -1,14 +1,12 @@
 <template>
   <div>
-    <h1>{{ faseNum }} - {{ faseNome }}</h1>
+    <h1>{{ faseNum }} - {{ fase.name }}</h1>
     <div id="app">
       <lottie :options="defaultOptions" :height="400" :width="400" v-on:animCreated="handleAnimation" />
       <button v-on:click="nextFase">Próxima</button>
     </div>
     <h2>{{ msg }}</h2>
-    <ops-drag/>
-    <multichoice></multichoice>
-    <schoolbar></schoolbar>
+    <component v-if="fase.component" :is="fase.component"/>
   </div>
 </template>
 
@@ -18,6 +16,7 @@ import OpsDrag from './OpsDrag.vue'
 import * as animationData from '../assets/pinjump.json'
 import animRanges from '../assets/anims.json'
 import MultiChoiceVue from './MultiChoice.vue'
+import CronometerVue from './Cronometer.vue'
 import Schoolbar from './Schoolbar.vue'
 
 export default {
@@ -26,12 +25,20 @@ export default {
     'lottie': Lottie,
     'ops-drag': OpsDrag,
     'multichoice': MultiChoiceVue,
+    'cronometer': CronometerVue,
     'schoolbar': Schoolbar
   },
   data () {
     return {
       faseNum: 0,
-      fases: ['intro', 'local', 'sexo'],
+      fases: [
+        {name: 'intro'},
+        {name: 'local'},
+        {name: 'sexo'},
+        {name: 'renda', component: OpsDrag},
+        {name: 'escola', component: Schoolbar},
+        {name: 'trabalho', component: MultiChoiceVue}
+      ],
       msg: 'Você nasceu em ...',
       defaultOptions: {
         animationData: animationData,
@@ -42,7 +49,7 @@ export default {
     }
   },
   computed: {
-    faseNome: function () {
+    fase: function () {
       return this.fases[this.faseNum]
     }
   },
@@ -51,8 +58,8 @@ export default {
       this.anim = anim
     },
     nextFase: function (anim) {
-      var animFase = animRanges[this.faseNome]
       this.faseNum += 1
+      var animFase = animRanges[this.fase.name]
       this.anim.playSegments(animFase.interval, true)
       this.anim.loop = animFase.loop
     }
