@@ -1,0 +1,14 @@
+{
+  "pb": {
+    "porc": 0.1,
+    "mulher": {
+      "porc": 0.5,
+      "preta": {
+        "porc": 0.3,
+        "renda1": {
+          "porc": 0.4
+        }
+      }
+    }
+  }
+}
