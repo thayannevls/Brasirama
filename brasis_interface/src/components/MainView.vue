@@ -16,12 +16,15 @@ import OpsDrag from './OpsDrag.vue'
 import * as animationData from '../assets/pinjump.json'
 import animRanges from '../assets/anims.json'
 import MultiChoiceVue from './MultiChoice.vue'
+import Schoolbar from './Schoolbar.vue'
+
 export default {
   name: 'MainView',
   components: {
     'lottie': Lottie,
     'ops-drag': OpsDrag,
-    'multichoice': MultiChoiceVue
+    'multichoice': MultiChoiceVue,
+    'schoolbar': Schoolbar
   },
   data () {
     return {
@@ -31,6 +34,7 @@ export default {
         {name: 'local'},
         {name: 'sexo'},
         {name: 'renda', component: OpsDrag},
+        {name: 'escola', component: Schoolbar},
         {name: 'trabalho', component: MultiChoiceVue}
       ],
       msg: 'Você nasceu em ...',
