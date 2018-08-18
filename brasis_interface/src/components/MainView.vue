@@ -47,8 +47,10 @@ export default {
       this.anim = anim
     },
     nextFase: function (anim) {
+      var animFase = animRanges[this.faseNome]
       this.faseNum += 1
-      this.anim.playSegments(animRanges[this.faseNome], true)
+      this.anim.playSegments(animFase.interval, true)
+      this.anim.loop = animFase.loop
     }
   }
 }
