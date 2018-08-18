@@ -44,9 +44,9 @@ export default {
 </script>
 
 <style scoped>
-  .bar{
-    background-color: antiquewhite;
+  .bar progress{
+    color: #e98155;
+
   }
-  .bar progress {
-  }
+
 </style>
