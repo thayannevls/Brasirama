@@ -1,5 +1,13 @@
 {
-  "intro": [0, 10],
-  "local": [10, 20],
-  "sexo": [20, 30]
+  "intro": {
+    "interval": [0, 10]
+  },
+  "local": {
+    "interval": [10, 20],
+    "loop": 2
+  },
+  "sexo": {
+    "interval": [20, 30],
+    "loop": true
+  }
 }
