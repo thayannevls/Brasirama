@@ -8,7 +8,6 @@
     <h2>{{ msg }}</h2>
     <ops-drag/>
     <multichoice></multichoice>
-    <cronometer v-bind:time= "time"></cronometer>
     <schoolbar></schoolbar>
   </div>
 </template>
@@ -41,8 +40,7 @@ export default {
         autoplay: false,
         loop: false
       },
-      animationSpeed: 1,
-      time: 10
+      animationSpeed: 1
     }
   },
   computed: {
