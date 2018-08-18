@@ -3,11 +3,9 @@
     <transition name="fade">
       <p key="msg" v-if="displayMsg">Só que renda da família a gente não escolhe...</p>
       <div key="slider" v-else class="slider" :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">
-        <img src="/static/image/slider.svg"/>
+        <img src="/static/image/slider.svg" class="image"/>
       </div>
     </transition>
-    <div>
-    </div>
   </div>
 </template>
 
@@ -62,7 +60,6 @@ export default {
 <style>
 .slider {
     position: relative;
-    width: 50%;
 }
 .fade-enter-active, .fade-leave-active {
     transition: opacity 2s;
@@ -70,3 +67,8 @@ export default {
 .fade-enter, .fade-leave-to {
     opacity: 0;
 }
+.image{
+    pointer-events: none;
+    width: 50%;
+}
+</style>
