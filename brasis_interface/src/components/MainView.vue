@@ -6,6 +6,7 @@
       <button v-on:click="nextFase">Próxima</button>
     </div>
     <h2>{{ msg }}</h2>
+    <multichoice></multichoice>
   </div>
 </template>
 
@@ -13,10 +14,12 @@
 import Lottie from './lottie.vue'
 import * as animationData from '../assets/pinjump.json'
 import animRanges from '../assets/anims.json'
+import MultiChoiceVue from './MultiChoice.vue'
 export default {
   name: 'MainView',
   components: {
-    'lottie': Lottie
+    'lottie': Lottie,
+    'multichoice': MultiChoiceVue
   },
   data () {
     return {
