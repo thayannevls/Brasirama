@@ -15,7 +15,6 @@ export default {
     height: Number,
     width: Number
   },
-  
   data () {
     return {
       style: {
@@ -26,7 +25,6 @@ export default {
       }
     }
   },
-  
   mounted () {
     this.anim = lottie.loadAnimation({
       container: this.$refs.lavContainer,
