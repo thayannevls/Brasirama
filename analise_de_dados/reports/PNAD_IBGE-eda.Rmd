@@ -3,6 +3,7 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+
 ```{r , warning=FALSE, message=FALSE}
 library(tidyverse)
 library(here)
@@ -15,13 +16,7 @@ theme_set(theme_bw())
 dados_2016 = read_csv(here("data/dados_2016.csv"))
 dados_2017 = read_csv(here("data/dados_2017.csv"))
 
-dados = merge(dados_2016, dados_2017)
-```
-
-
-
-```{r}
-dadosPNAD <- read_csv(here("data/dados.csv")) 
+dadosPNAD = merge(dados_2016, dados_2017)
 ```
 
 
@@ -171,4 +166,25 @@ mulher_negra_pb_not_cart_assinada
 ```
 
 
+1. Calcular renda da pessoa com base no sexo, local que nasceu, cor
+
+```{r}
+# Tá estranho ainda, jaja ajeito
+renda_sexo_mulher <- dadosPNAD %>% 
+  group_by(faixa_salario) %>% 
+  summarise(mediaSalarial = median(faixa_salario)) %>% 
+  filter(sexo == 2)
+
+renda_sexo_mulher$mediaSalarial
+  
+
+```
+
+```{r}
+# Quantidade de pessoas que possuem cada renda(enumeradas de 1 a 8)
+
+faixa_qtd <- dadosPNAD %>%
+  group_by(faixa_salario) %>% 
+  summarise(count = n())
+```
 
