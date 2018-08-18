@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     wasHovered: function (choice) {
-      console.log(choice)
       return this.hovered.indexOf(choice) !== -1
     },
     handleAnimation: function (anim) {

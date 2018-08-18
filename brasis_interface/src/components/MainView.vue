@@ -8,6 +8,7 @@
     <h2>{{ msg }}</h2>
     <ops-drag/>
     <multichoice></multichoice>
+    <cronometer v-bind:time= "time"></cronometer>
   </div>
 </template>
 
@@ -17,12 +18,14 @@ import OpsDrag from './OpsDrag.vue'
 import * as animationData from '../assets/pinjump.json'
 import animRanges from '../assets/anims.json'
 import MultiChoiceVue from './MultiChoice.vue'
+import CronometerVue from './Cronometer.vue'
 export default {
   name: 'MainView',
   components: {
     'lottie': Lottie,
     'ops-drag': OpsDrag,
-    'multichoice': MultiChoiceVue
+    'multichoice': MultiChoiceVue,
+    'cronometer': CronometerVue
   },
   data () {
     return {
@@ -34,7 +37,8 @@ export default {
         autoplay: false,
         loop: false
       },
-      animationSpeed: 1
+      animationSpeed: 1,
+      time: 10
     }
   },
   computed: {
