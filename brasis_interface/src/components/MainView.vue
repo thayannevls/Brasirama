@@ -2,8 +2,8 @@
   <div>
     <h1>{{ faseNum }} - {{ fase.name }}</h1>
     <div id="app">
-      <lottie :options="defaultOptions" :height="400" :width="400" v-on:animCreated="handleAnimation" />
-      <button v-on:click="nextFase">Próxima</button>
+      <lottie :options="defaultOptions" @animCreated="handleAnimation" />
+      <button @click="nextFase">Próxima</button>
     </div>
     <h2 v-if="fase.msg">{{ fase.msg }}</h2>
     <component v-if="fase.component" :is="fase.component"/>
@@ -11,9 +11,8 @@
 </template>
 
 <script>
-import Lottie from './lottie.vue'
 import OpsDrag from './OpsDrag.vue'
-import * as animationData from '../assets/pinjump.json'
+import * as animationData from '../assets/mulher.json'
 import animRanges from '../assets/anims.json'
 import MultiChoiceVue from './MultiChoice.vue'
 import Schoolbar from './Schoolbar.vue'
@@ -21,7 +20,6 @@ import Schoolbar from './Schoolbar.vue'
 export default {
   name: 'MainView',
   components: {
-    'lottie': Lottie,
     'ops-drag': OpsDrag,
     'multichoice': MultiChoiceVue,
     'schoolbar': Schoolbar
