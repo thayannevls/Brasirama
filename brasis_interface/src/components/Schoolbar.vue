@@ -25,7 +25,7 @@ export default {
     return {
       progressGame: 45,
       max: 100,
-      count: 3
+      count: 10
     }
   },
   methods: {

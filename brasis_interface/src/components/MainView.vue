@@ -16,7 +16,6 @@ import OpsDrag from './OpsDrag.vue'
 import * as animationData from '../assets/pinjump.json'
 import animRanges from '../assets/anims.json'
 import MultiChoiceVue from './MultiChoice.vue'
-import CronometerVue from './Cronometer.vue'
 import Schoolbar from './Schoolbar.vue'
 
 export default {
@@ -25,7 +24,6 @@ export default {
     'lottie': Lottie,
     'ops-drag': OpsDrag,
     'multichoice': MultiChoiceVue,
-    'cronometer': CronometerVue,
     'schoolbar': Schoolbar
   },
   data () {
