@@ -10,17 +10,24 @@ library(plotly)
 theme_set(theme_bw())
 ```
 
-```{r}
-dadosRandomPNAD <- read_delim(here("data/2017_4.csv"), delim = ";") %>% 
-  select(V2007, V2010, UF)
 
+```{r}
+dados_2016 = read_csv(here("data/dados_2016.csv"))
+dados_2017 = read_csv(here("data/dados_2017.csv"))
+
+dados = merge(dados_2016, dados_2017)
+```
+
+
+
+```{r}
+dadosPNAD <- read_csv(here("data/dados.csv")) 
 ```
 
 
 ```{r}
-dadosRandomPNAD <- dadosRandomPNAD %>% 
-  mutate(Sexo = V2007,
-         cor_ou_raca = V2010)
+dadosRandomPNAD <- dadosPNAD %>% 
+  select(sexo, uf, cor)
 ```
 
 Dados randômicos em nosso jogo:
@@ -29,20 +36,6 @@ Distribuição dos brasileiros pelas seguintes características:
   - Sexo(V2007): Homem/Mulher
   - UF: Estados
   - Cor ou raça(V2010): Branco, negro, pardo, amarelo...
-  
-```{r}
-dadosRandomPNAD %>% 
-  group_by(Sexo) %>% 
-  summarise(count = n()) %>% 
-  ggplot(aes(x = Sexo,
-             y = count,
-             fill = Sexo)) +
-  geom_col(position = position_identity()) +
-  labs(title = "Distribuição dos brasileiros por sexo",
-       x = "Sexo",
-       y = "Quantidade(nº)")
-
-```
 
 Os 5 grupos a seguir são as regiões brasileiras e correspondem respectivamente:
 
@@ -54,64 +47,128 @@ Os 5 grupos a seguir são as regiões brasileiras e correspondem respectivamente
 
 
 ```{r}
-dadosRandomPNAD %>% 
-  group_by(UF) %>% 
-  summarise(count = n()) %>% 
-  ggplot(aes(x = UF,
-             y = count,
-             fill = UF)) +
-  geom_col(position = position_identity()) +
-  labs(title = "Distribuição dos brasileiros por estado")
+total_brasileiros <- dadosPNAD %>% 
+  summarise(count = n())
 
-
-```
-
-Dados n correspondem aos números da base de dados
-```{r}
-dadosRandomPNAD %>% 
-  group_by(cor_ou_raca) %>% 
-  summarise(count = n()) %>% 
-  ggplot(aes(x = cor_ou_raca,
-             y = count)) +
-  geom_col(position = position_identity()) +
-  labs(title = "Distribuição dos brasileiros por raca")
-
-```
-
-
-```{r}
 qntEstado <- dadosRandomPNAD %>% 
-  group_by(UF) %>% 
+  group_by(uf) %>% 
   summarise(count = n())
 
 qntRaca <- dadosRandomPNAD %>% 
-  group_by(cor_ou_raca) %>% 
+  group_by(cor) %>% 
   summarise(count = n())
 
-dadosRandomPNAD %>% 
-  plot_ly(x = ~UF,
-          y = ~qntEstado$count,
-          color = ~Sexo,
-          size = ~qntRaca$count)
+qntSexoMulher <- dadosRandomPNAD %>% 
+  filter(sexo == 2) %>% 
+  group_by(sexo) %>%
+  summarise(countMulher = n())
+  
+qntSexoHomem <- dadosRandomPNAD %>% 
+  filter(sexo == 1) %>% 
+  group_by(sexo) %>% 
+  summarise(countHomem = n())
+```
+
+Modelando avatar:
+
+  - Sexo: Mulher
+  - Cor: Negra
+  - UF: PB
+  
+```{r}
+mulher_negra_pb <- dadosPNAD %>% 
+  filter(sexo == 2,
+         cor == 2,
+         uf == 25) %>%
+  summarise(count = n())
+
+
+# porcentagem de mulheres negras paraibanas sobre a populacao total brasileira
+perc_mulher_nergra_pb <- mulher_negra_pb %>% 
+  summarise(perc = mulher_negra_pb$count/total_brasileiros$count)
+  
+perc_mulher_nergra_pb
 
 ```
+
+1. Escolaridade
+
+1.1 
+```{r}
+# Número de mulheres que estudam em escola pvd(privada) e pub(publica)
+
+mulher_negra_pb_ens_pvd <- dadosPNAD %>% 
+  filter(sexo == 2,
+         cor == 2,
+         uf == 25,
+         rede_de_ensino == 1) %>%
+  summarise(count = n())
+
+mulher_negra_pb_ens_pvd
+
+mulher_negra_pb_ens_pub <- dadosPNAD %>% 
+  filter(sexo == 2,
+         cor == 2,
+         uf == 25,
+         rede_de_ensino == 2) %>%
+  summarise(count = n())
+  
+mulher_negra_pb_ens_pub
+
+```
+1.2 Ensino superior
 
 ```{r}
-# selecionar colunas importantes
-dadosPerguntasPNAD = read_delim(here("data/2017_4.csv"), delim = ";") %>% 
-  select()
+
 ```
 
+
+2. Valor do salario
 
 ```{r}
-dadosPerguntasPNAD <- dadosPerguntasPNAD %>% 
-  #filtrar informacoes dos 2 modelos
-  filter()
+mulher_negra_pb_salarios <- dadosPNAD %>% 
+  filter(sexo == 2,
+         cor == 2,
+         uf == 25) %>%
+  group_by(valor_salario) %>% 
+  summarise(count = n())
+
+```
+
+0 Renda:
+
+0.1 Pelo local, gênero
+
+```{r}
+
 ```
 
 
+2 Trabalho
 
+2.1 Carteira assinada
 
+```{r}
+# Com carteira assinada
+mulher_negra_pb_cart_assinada <- dadosPNAD %>% 
+  filter(sexo == 2,
+         cor == 2,
+         uf == 25,
+         is_carteira_assinada == 1) %>%
+  summarise(count = n())
+
+mulher_negra_pb_cart_assinada
+
+# Sem a carteira assinada
+mulher_negra_pb_not_cart_assinada <- dadosPNAD %>% 
+  filter(sexo == 2,
+         cor == 2,
+         uf == 25,
+         is_carteira_assinada == 2) %>%
+  summarise(count = n())
+
+mulher_negra_pb_not_cart_assinada
+```
 
 
 
