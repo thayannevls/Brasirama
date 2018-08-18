@@ -15,4 +15,3 @@ names = list(dic_var.keys())
 
 pnad = pd.read_fwf(filepath, header=None, widths=widths, names=names)
 print(pnad.iloc[1])
-# pnad.to_csv(r"/Users/user/dev/BrasisDoBrasil/dados.csv", index=False, sep=";")
