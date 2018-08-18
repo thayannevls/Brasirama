@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import router from '@/router'
 import * as animationData from '../assets/intro.json'
 
 export default {
@@ -24,6 +25,9 @@ export default {
   methods: {
     handleAnimation: function (anim) {
       this.anim = anim
+      this.anim.addEventListener('complete', function () {
+        router.push({name: 'main'})
+      })
     },
     play: function () {
       this.anim.play()
