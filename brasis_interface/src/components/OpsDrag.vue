@@ -57,7 +57,6 @@ export default {
 }
 </script>
 
-<<<<<<< HEAD
 <style scoped>
   .slider {
       position: relative;
@@ -66,20 +65,4 @@ export default {
       pointer-events: none;
       width: 50%;
   }
-=======
-<style>
-.slider {
-    position: relative;
-}
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 2s;
-}
-.fade-enter, .fade-leave-to {
-    opacity: 0;
-}
-.image{
-    pointer-events: none;
-    width: 50%;
-}
->>>>>>> 24bdaa691d077e0b3f8dcb6baa58c7dd731b5f0e
 </style>

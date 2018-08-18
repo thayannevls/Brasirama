@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="bar" id="barra" v-if="count > 0">
-      <div id="progress" class="graph" >
+      <div id="progress" class="graph">
         <div id="bar" :style="{width: progressGame + 'px'}"><p>{{progressGame}}% complete</p></div></div>
     </div>
     <div>
