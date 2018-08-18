@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2>{{ msg }}</h2>
-    <div>
-      <p class="slider" :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">.----o----.</p>
+    <div class="slider" :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">
+      <img src="/static/image/slider.svg" class="image">
     </div>
   </div>
 </template>
@@ -22,7 +22,6 @@ export default {
   },
   mounted: function () {
     var mouseUpdate = (ev) => {
-      console.log(this.moveSlider)
       if (this.moveSlider) {
         this.x = ev.pageX - this.x0
         this.y = ev.pageY - this.y0
@@ -54,5 +53,10 @@ export default {
 <style scoped>
   .slider {
       position: relative;
+  }
+  .image{
+      pointer-events: none;
+      width: 50%;
+
   }
 </style>
