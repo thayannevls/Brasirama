@@ -9,6 +9,7 @@
     <ops-drag/>
     <multichoice></multichoice>
     <cronometer v-bind:time= "time"></cronometer>
+    <schoolbar></schoolbar>
   </div>
 </template>
 
@@ -19,13 +20,16 @@ import * as animationData from '../assets/pinjump.json'
 import animRanges from '../assets/anims.json'
 import MultiChoiceVue from './MultiChoice.vue'
 import CronometerVue from './Cronometer.vue'
+import Schoolbar from './Schoolbar.vue'
+
 export default {
   name: 'MainView',
   components: {
     'lottie': Lottie,
     'ops-drag': OpsDrag,
     'multichoice': MultiChoiceVue,
-    'cronometer': CronometerVue
+    'cronometer': CronometerVue,
+    'schoolbar': Schoolbar
   },
   data () {
     return {
