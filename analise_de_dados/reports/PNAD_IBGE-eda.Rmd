@@ -1,0 +1,117 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r , warning=FALSE, message=FALSE}
+library(tidyverse)
+library(here)
+library(plotly)
+theme_set(theme_bw())
+```
+
+```{r}
+dadosRandomPNAD <- read_delim(here("data/2017_4.csv"), delim = ";") %>% 
+  select(V2007, V2010, UF)
+
+```
+
+
+```{r}
+dadosRandomPNAD <- dadosRandomPNAD %>% 
+  mutate(Sexo = V2007,
+         cor_ou_raca = V2010)
+```
+
+Dados randômicos em nosso jogo:
+
+Distribuição dos brasileiros pelas seguintes características:
+  - Sexo(V2007): Homem/Mulher
+  - UF: Estados
+  - Cor ou raça(V2010): Branco, negro, pardo, amarelo...
+  
+```{r}
+dadosRandomPNAD %>% 
+  group_by(Sexo) %>% 
+  summarise(count = n()) %>% 
+  ggplot(aes(x = Sexo,
+             y = count,
+             fill = Sexo)) +
+  geom_col(position = position_identity()) +
+  labs(title = "Distribuição dos brasileiros por sexo",
+       x = "Sexo",
+       y = "Quantidade(nº)")
+
+```
+
+Os 5 grupos a seguir são as regiões brasileiras e correspondem respectivamente:
+
+1 - Norte
+2 - Nordeste
+3 - Sudeste
+4 - Sul
+5 - Centro-Oeste
+
+
+```{r}
+dadosRandomPNAD %>% 
+  group_by(UF) %>% 
+  summarise(count = n()) %>% 
+  ggplot(aes(x = UF,
+             y = count,
+             fill = UF)) +
+  geom_col(position = position_identity()) +
+  labs(title = "Distribuição dos brasileiros por estado")
+
+
+```
+
+Dados n correspondem aos números da base de dados
+```{r}
+dadosRandomPNAD %>% 
+  group_by(cor_ou_raca) %>% 
+  summarise(count = n()) %>% 
+  ggplot(aes(x = cor_ou_raca,
+             y = count)) +
+  geom_col(position = position_identity()) +
+  labs(title = "Distribuição dos brasileiros por raca")
+
+```
+
+
+```{r}
+qntEstado <- dadosRandomPNAD %>% 
+  group_by(UF) %>% 
+  summarise(count = n())
+
+qntRaca <- dadosRandomPNAD %>% 
+  group_by(cor_ou_raca) %>% 
+  summarise(count = n())
+
+dadosRandomPNAD %>% 
+  plot_ly(x = ~UF,
+          y = ~qntEstado$count,
+          color = ~Sexo,
+          size = ~qntRaca$count)
+
+```
+
+```{r}
+# selecionar colunas importantes
+dadosPerguntasPNAD = read_delim(here("data/2017_4.csv"), delim = ";") %>% 
+  select()
+```
+
+
+```{r}
+dadosPerguntasPNAD <- dadosPerguntasPNAD %>% 
+  #filtrar informacoes dos 2 modelos
+  filter()
+```
+
+
+
+
+
+
+
