@@ -6,17 +6,20 @@
       <button v-on:click="nextFase">Próxima</button>
     </div>
     <h2>{{ msg }}</h2>
+    <ops-drag/>
   </div>
 </template>
 
 <script>
 import Lottie from './lottie.vue'
+import OpsDrag from './OpsDrag.vue'
 import * as animationData from '../assets/pinjump.json'
 import animRanges from '../assets/anims.json'
 export default {
   name: 'MainView',
   components: {
-    'lottie': Lottie
+    'lottie': Lottie,
+    'ops-drag': OpsDrag
   },
   data () {
     return {
