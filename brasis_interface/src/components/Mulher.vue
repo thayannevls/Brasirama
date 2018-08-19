@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="/static/image/tela_1_textos.svg" class="image"/>
+    <img src="static/image/tela_1_textos.svg" class="image"/>
   </div>
 </template>
 

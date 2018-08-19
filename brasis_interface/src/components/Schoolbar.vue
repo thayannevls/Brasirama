@@ -1,7 +1,7 @@
 <template>
   <div style="display: flex;">
     <div class="col">
-      <img src="/static/image/tela_5_titulo_game.svg" class="renda-top-text"/>
+      <img src="static/image/tela_5_titulo_game.svg" class="renda-top-text"/>
       <div id="cronometro">
         <div v-if="count > 0">
           {{ count }}
@@ -11,9 +11,9 @@
         </div>
       </div>
       <div :style="{width: '100%', display: 'flex'}">
-        <div class="escolaridade"><img src="/static/image/escola_fundamental.svg"></div>
-        <div class="escolaridade"><img src="/static/image/escola_medio.svg"></div>
-        <div class="escolaridade"><img src="/static/image/escola_superior.svg"></div>
+        <div class="escolaridade"><img src="static/image/escola_fundamental.svg"></div>
+        <div class="escolaridade"><img src="static/image/escola_medio.svg"></div>
+        <div class="escolaridade"><img src="static/image/escola_superior.svg"></div>
       </div>
 
       <div class="bar" id="barra">
@@ -31,7 +31,7 @@
      </button>
     </div>
     <div class="col">
-      <img src="/static/image/tela_5_texto.svg" class="col-right-text" style="margin: 0;padding-left: 25%;flex-basis: 70%"/>
+      <img src="static/image/tela_5_texto.svg" class="col-right-text" style="margin: 0;padding-left: 25%;flex-basis: 70%"/>
     </div>
   </div>
 </template>

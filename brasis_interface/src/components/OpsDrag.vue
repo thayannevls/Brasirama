@@ -1,15 +1,15 @@
 <template>
   <div>
     <div class="col">
-      <img src="/static/image/tela_3_titulo_slider.svg" class="renda-top-text"/>
+      <img src="static/image/tela_3_titulo_slider.svg" class="renda-top-text"/>
       <transition name="fade" mode="out-in">
         <p key="msg" v-if="displayMsg" class="renda-ops-text">Só que a renda da família a gente não escolhe...</p>
         <div key="slider" v-else class="slider" :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">
-          <img src="/static/image/slider.svg" class="slider-image"/>
+          <img src="static/image/slider.svg" class="slider-image"/>
         </div>
       </transition>
     </div>
-    <img src="/static/image/tela_3_texto.svg" class="col-right-text"/>
+    <img src="static/image/tela_3_texto.svg" class="col-right-text"/>
   </div>
 </template>
 

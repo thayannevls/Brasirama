@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="cabecalho">
-      <img class="imagem" src="/static/image/logo_brasirama.svg"/>
+      <img class="imagem" src="static/image/logo_brasirama.svg"/>
     </div>
     <div id="top-row">
       <transition name="fade">
