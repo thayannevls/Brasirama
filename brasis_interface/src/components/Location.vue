@@ -1,7 +1,6 @@
 <template>
   <div>
-    <p>Imagem errada por enquanto...</p>
-    <img src="/static/image/tela_1_textos.svg" class="image"/>
+    <img src="/static/image/tela_0_texto.svg" class="image"/>
   </div>
 </template>
 
