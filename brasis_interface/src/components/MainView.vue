@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1>{{ faseNum }} - {{ fase.name }}</h1>
-    <div id="app">
+    <div id="top-row">
+      <transition name="fade">
+        <button v-if="showButton" @click="nextFase" class="mybutton">Próxima</button>
+      </transition>
       <lottie :options="defaultOptions" @animCreated="handleAnimation" />
-      <button @click="nextFase" class="mybutton">Próxima</button>
     </div>
-    <h2 v-if="fase.msg">{{ fase.msg }}</h2>
     <transition name="fade">
       <component v-if="fase.component" :is="fase.component"/>
     </transition>
@@ -43,7 +43,8 @@ export default {
         autoplay: false,
         loop: false
       },
-      animationSpeed: 1
+      animationSpeed: 1,
+      showButton: true
     }
   },
   computed: {
@@ -74,18 +75,29 @@ export default {
       if (!animName) animName = this.fase.anim
       if (!animName) animName = this.fase.name
       var animFase = animRanges[animName]
+      this.showButton = false
       this.anim.playSegments(animFase.interval, true)
       this.anim.loop = animFase.loop
+      var animPlayed = () => {
+        this.showButton = true
+      }
+      this.anim.addEventListener('complete', animPlayed)
+      this.anim.addEventListener('loopComplete', animPlayed)
     }
   }
 }
 </script>
 
 <style scoped>
-  * {
+* {
     user-select: none;
-  }
-  button {
+}
+#top-row {
+    border-bottom: 1px solid #b8a9ae;
+    position: relative;
+    margin-top: 100px;
+}
+button {
     padding:15px;
     margin: 0;
     width:150px;
@@ -93,18 +105,20 @@ export default {
     border-radius: 50%;
     text-transform: uppercase;
     font-size: 20px;
-  }
-  button:active {
+}
+button:active {
     outline: none;
-  }
-  button:focus {
+}
+button:focus {
     outline: 0;
-  }
-  .mybutton {
-    transition:
-        margin-top 0.3s ease,
-        margin-left 0.3s ease,
-        box-shadow 0.3s ease;
+}
+.mybutton {
+    position:absolute;
+    top: 50%;
+    right: 0;
+    z-index: 100;
+    transform: translate(0%, -50%);
+    transition: all 0.3s ease;
 
     background:#ff0000;
     border: solid 1px #ff0000;
@@ -120,12 +134,10 @@ export default {
         0px 8px 0px #201b53,0px 9px 0px #201b53;
   }
   .mybutton:active {
-    transition:
-        margin-top 0.0s ease,
-        box-shadow 0.0s ease;
-        margin-top:10px;
-        box-shadow:
-          0px 0px 0px #201b53,0px 0px 0px #201b53,
-          0px 0px 0px #201b53,0px 0px 0px #201b53;
+    transition: all 0.0s ease;
+    margin-top: 10px;
+    box-shadow:
+      0px 0px 0px #201b53,0px 0px 0px #201b53,
+      0px 0px 0px #201b53,0px 0px 0px #201b53;
   }
 </style>
