@@ -22,6 +22,7 @@ import animRanges from '../assets/anims.json'
 import MultiChoice from './MultiChoice.vue'
 import Schoolbar from './Schoolbar.vue'
 import Location from './Location.vue'
+import Cor from './Cor.vue'
 import Mulher from './Mulher.vue'
 
 export default {
@@ -32,7 +33,7 @@ export default {
       fases: [
         {name: 'local', msg: 'nasceu em João Pessoa', component: Location},
         {name: 'sexo', msg: 'mulher', anim: 'mulher-aparece', component: Mulher, walkOut: true},
-        {name: 'cor', msg: 'de cor negra', anim: 'aceno', walkOut: true},
+        {name: 'cor', msg: 'de cor negra', anim: 'aceno', component: Cor, walkOut: true},
         {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag, walkOut: true},
         {name: 'escolaridade-rede', anim: 'escolaridade', component: MultiChoice},
         {name: 'escolaridade-corre', anim: 'escolaridade', component: Schoolbar, walkOut: true},
