@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div style="display: inline-block">
     <div>
       <div style="display: inline-block">
         <button>
@@ -11,6 +11,7 @@
         </button>
       </div>
     </div>
+    <img src="/static/image/tela_4_frase.svg" class="col-right-text"/>
   </div>
 </template>
 
@@ -46,7 +47,7 @@ export default {
 .disabled {
   pointer-events: none;
   padding-top:10px;
-  background: #e98155 ;
+  background: #fd4d59 ;
   box-shadow:
       0px 0px 0px #fd4d59,0px 0px 0px #fd4d59,
       0px 0px 0px #fd4d59,0px 0px 0px #fd4d59;
@@ -54,7 +55,6 @@ export default {
 button {
   padding: 15px;
   margin: 0;
-  width: 40%;
   text-transform: uppercase;
   font-size: 14px;
   background: rgb(255, 163, 143);
