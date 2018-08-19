@@ -21,6 +21,7 @@ import Schoolbar from './Schoolbar.vue'
 import Location from './Location.vue'
 import Cor from './Cor.vue'
 import Mulher from './Mulher.vue'
+import EndView from './EndView.vue'
 
 export default {
   name: 'MainView',
@@ -35,7 +36,8 @@ export default {
         {name: 'escolaridade-rede', anim: 'escolaridade', component: MultiChoice},
         {name: 'escolaridade-corre', anim: 'escolaridade', component: Schoolbar, walkOut: true},
         {name: 'trabalho', component: MultiChoice, walkOut: true},
-        {name: 'crush', msg: '<3', walkOut: true}
+        {name: 'crush', msg: '<3', walkOut: true},
+        {name: 'fim', msg: '<3', anim: 'caminhando', component: EndView}
       ],
       defaultOptions: {
         animationData: animationData,
@@ -61,6 +63,8 @@ export default {
       var change = () => {
         this.faseNum += 1
         this.playAnim()
+        // if (this.faseNum < this.fases.length) this.playAnim()
+        // else router.push({name: 'end'})
       }
       if (this.fase.walkOut) {
         this.playAnim('caminhando')

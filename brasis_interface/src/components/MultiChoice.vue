@@ -1,13 +1,12 @@
 <template>
-  <div style="display: inline-block">
-    <div>
-      <div style="display: inline-block">
+  <div>
+    <div class="col">
+      <div>
         <button>
           Escola Pública
         </button>
         <button :class="{ disabled: wasHovered(choices[0]), mybutton:!wasHovered(choices[0]) }" v-on:mouseover="hover(choices[0])">
           {{ !wasHovered(choices[0])?'Escola Privada':'Infelizmente você não está nos 25,5% de seu perfil que conseguiram estudo privado' }}
-
         </button>
       </div>
     </div>
