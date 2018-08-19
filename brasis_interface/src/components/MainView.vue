@@ -31,11 +31,12 @@ export default {
       faseNum: 0,
       fases: [
         {name: 'local', msg: 'nasceu em João Pessoa'},
-        {name: 'sexo', msg: 'mulher', anim: 'mulher-aparece'},
-        {name: 'cor', msg: 'de cor negra', anim: 'aceno'},
-        {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag},
-        {name: 'escolaridade', component: Schoolbar},
-        {name: 'trabalho', component: MultiChoiceVue}
+        {name: 'sexo', msg: 'mulher', anim: 'mulher-aparece', walkOut: true},
+        {name: 'cor', msg: 'de cor negra', anim: 'aceno', walkOut: true},
+        {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag, walkOut: true},
+        {name: 'escolaridade', component: Schoolbar, walkOut: true},
+        {name: 'trabalho', component: MultiChoiceVue, walkOut: true},
+        {name: 'crush', msg: '<3', walkOut: true}
       ],
       defaultOptions: {
         animationData: animationData,
@@ -57,8 +58,16 @@ export default {
       this.playAnim()
     },
     nextFase: function (anim) {
-      this.faseNum += 1
-      this.playAnim()
+      var change = () => {
+        this.faseNum += 1
+        this.playAnim()
+      }
+      if (this.fase.walkOut) {
+        this.playAnim('caminhando')
+        setTimeout(change, 2000)
+      } else {
+        change()
+      }
     },
     playAnim: function (name) {
       var animName = name
