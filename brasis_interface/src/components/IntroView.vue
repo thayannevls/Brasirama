@@ -34,6 +34,9 @@ export default {
 </script>
 
 <style scoped>
+  * {
+    user-select: none;
+  }
 .play-button {
     position: absolute;
     top: 50%;
@@ -54,6 +57,8 @@ button {
     border-radius: 50%;
     text-transform: uppercase;
     font-size: 20px;
+    color: #201b53;
+    user-select: none;
   }
   button:active {
     outline: none;
@@ -67,8 +72,8 @@ button {
         margin-left 0.3s ease,
         box-shadow 0.3s ease;
 
-    background:#e98155;
-    border: solid 1px #e98155;
+    background:rgb(255, 163, 143);
+    border: solid 1px rgb(255, 163, 143);
     box-shadow:
         0px 0px 0px #fd4d59, 0px 1px 0px #fd4d59,
         0px 1px 0px #fd4d59,0px 2px 0px #fd4d59,
