@@ -110,6 +110,7 @@ export default {
     width: 100%;
     height: 10%;
     background: #201b53;
+    margin-top: 0%;
 }
 
 .imagem{
