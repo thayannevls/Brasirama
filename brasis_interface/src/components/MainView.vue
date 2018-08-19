@@ -44,7 +44,7 @@ export default {
         loop: false
       },
       animationSpeed: 1,
-      showButton: true
+      showButton: false
     }
   },
   computed: {
