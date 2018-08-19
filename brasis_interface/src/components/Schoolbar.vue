@@ -1,32 +1,36 @@
 <template>
   <div>
-    <div id="cronometro">
-      <div v-if="count > 0">
-        {{ count }}
-      </div>
-      <div v-else>
-        O TEMPO ACABOU
-      </div>
-    </div>
-    <div :style="{width: '50%', height: '', display: 'flex'}">
-      <div class="escolaridade"><img src="/static/image/escola_fundamental.svg"></div>
-      <div class="escolaridade"><img src="/static/image/escola_medio.svg"></div>
-      <div class="escolaridade"><img src="/static/image/escola_superior.svg"></div>
-    </div>
-
-    <div class="bar" id="barra">
-      <div class="graph">
-        <div id="bar" :style="{width: progressGame + 'px'}"></div>
-        <div style="align-items: left; margin-left: -58px">
-          <lottie :options="defaultOptions" @animCreated="handleAnimation" />
+    <div class="col">
+      <img src="/static/image/tela_5_titulo_game.svg" class="renda-top-text"/>
+      <div id="cronometro">
+        <div v-if="count > 0">
+          {{ count }}
+        </div>
+        <div v-else>
+          O TEMPO ACABOU
         </div>
       </div>
+      <div :style="{width: '50%', height: '', display: 'flex'}">
+        <div class="escolaridade"><img src="/static/image/escola_fundamental.svg"></div>
+        <div class="escolaridade"><img src="/static/image/escola_medio.svg"></div>
+        <div class="escolaridade"><img src="/static/image/escola_superior.svg"></div>
+      </div>
+
+      <div class="bar" id="barra">
+        <div class="graph">
+          <div id="bar" :style="{width: progressGame + 'px'}"></div>
+          <div style="align-items: left; margin-left: -58px">
+            <lottie :options="defaultOptions" @animCreated="handleAnimation" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <button v-if="count>0 " @click="alterData()">
+          Click me!
+      </button>
+      </div>
     </div>
-    <div>
-      <button v-if="count>0 " @click="alterData()">
-         Click me!
-     </button>
-    </div>
+    <img src="/static/image/tela_5_texto.svg" class="col-right-text"/>
 
   </div>
 </template>
@@ -81,7 +85,7 @@ export default {
     border: 1px solid fff;
   }
   .graph{
-    width: 50%; /* width and height are arbitrary, just make sure the #bar styles are changed accordingly */
+    width: 100%; /* width and height are arbitrary, just make sure the #bar styles are changed accordingly */
     height: 70px;
     background: #e98155;
     border: 1px solid #fff;
