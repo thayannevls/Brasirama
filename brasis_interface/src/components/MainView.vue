@@ -25,6 +25,7 @@ import Location from './Location.vue'
 import Cor from './Cor.vue'
 import Mulher from './Mulher.vue'
 import EndView from './EndView.vue'
+import Trabalho from './Trabalho.vue'
 
 export default {
   name: 'MainView',
@@ -38,7 +39,7 @@ export default {
         {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag, walkOut: true},
         {name: 'escolaridade-rede', anim: 'escolaridade', component: MultiChoice},
         {name: 'escolaridade-corre', anim: 'escolaridade', component: Schoolbar, walkOut: true},
-        {name: 'trabalho', component: MultiChoice, walkOut: true},
+        {name: 'trabalho', component: Trabalho, walkOut: true},
         {name: 'crush', msg: '<3', walkOut: true},
         {name: 'fim', msg: '<3', anim: 'caminhando', component: EndView}
       ],
