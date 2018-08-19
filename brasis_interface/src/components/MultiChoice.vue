@@ -50,6 +50,24 @@ export default {
   box-shadow:
       0px 0px 0px #fd4d59,0px 0px 0px #fd4d59,
       0px 0px 0px #fd4d59,0px 0px 0px #fd4d59;
+  }
+  button {
+      padding:15px;
+      margin: 0;
+      width:75px;
+      height: 75px;
+      text-transform: uppercase;
+      font-size: 10px;
+      color: #201b53;
+  }
+  ul li{margin-bottom:10px;}
+  button:active {
+    outline: none;
+  }
+  button:focus {
+    outline: 0;
+  }
+  .mybutton {
 }
 button {
   padding: 15px;

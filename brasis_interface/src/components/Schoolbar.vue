@@ -24,12 +24,13 @@
           </div>
         </div>
       </div>
-      <div>
-        <button v-if="count>0 " @click="alterData()">
-          Click me!
-      </button>
-      </div>
     </div>
+    <div>
+      <button v-if="count>0" class="play-button mybutton" @click="alterData()">
+         Click me!
+     </button>
+    </div>
+
     <img src="/static/image/tela_5_texto.svg" class="col-right-text"/>
 
   </div>
@@ -95,6 +96,52 @@ export default {
   }
   .escolaridade{
     width: 33%;
+  }
+
+  button{
+    padding:15px;
+    margin: 0;
+    width:75px;
+    height: 75px;
+    border-radius: 50%;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #201b53;
+}
+  button:active {
+    outline: none;
+  }
+  button:focus {
+    outline: 0;
+  }
+
+  .mybutton {
+    transition:
+      margin-top 0.3s ease,
+      margin-left 0.3s ease,
+      box-shadow 0.3s ease;
+
+    background:#Ffa38f;
+    border: solid 1px #e98155;
+    box-shadow:
+      0px 0px 0px #fd4d59, 0px 1px 0px #fd4d59,
+      0px 1px 0px #fd4d59,0px 2px 0px #fd4d59,
+      0px 2px 0px #fd4d59,0px 3px 0px #fd4d59,
+      0px 3px 0px #fd4d59,0px 4px 0px #fd4d59,
+      0px 4px 0px #fd4d59,0px 5px 0px #fd4d59,
+      0px 5px 0px #fd4d59,0px 6px 0px #fd4d59,
+      0px 6px 0px #fd4d59,0px 7px 0px #fd4d59,
+      0px 7px 0px #fd4d59,0px 8px 0px #fd4d59,
+      0px 8px 0px #fd4d59,0px 9px 0px #fd4d59;
+  }
+  .mybutton:active {
+    transition:
+      margin-top 0.0s ease,
+      box-shadow 0.0s ease;
+    margin-top:10px;
+    box-shadow:
+      0px 0px 0px #fd4d59,0px 0px 0px #fd4d59,
+      0px 0px 0px #fd4d59,0px 0px 0px #fd4d59;
   }
 
 </style>
