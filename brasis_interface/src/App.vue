@@ -15,6 +15,10 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+html {
+    background-color: #ffebe7;
+}
+
 #app {
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
