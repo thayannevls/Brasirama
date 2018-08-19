@@ -23,6 +23,8 @@ html {
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    max-width: 1000px;
+    margin: auto;
 }
 
 button:active {
