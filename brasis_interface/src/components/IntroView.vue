@@ -39,14 +39,11 @@ export default {
 }
 </script>
 
-<<<<<<< HEAD
-<style scoped>
+<style lang="scss">
   * {
     user-select: none;
   }
-=======
-<style lang="scss">
->>>>>>> 551db5a3cac921939f40608823f38ca06be0061f
+
 .play-button {
     position: absolute;
     top: 50%;
@@ -79,7 +76,6 @@ button {
     border-radius: 50%;
     text-transform: uppercase;
     font-size: 20px;
-<<<<<<< HEAD
     color: #201b53;
     user-select: none;
   }
@@ -117,7 +113,5 @@ button {
           0px 0px 0px #fd4d59,0px 0px 0px #fd4d59,
           0px 0px 0px #fd4d59,0px 0px 0px #fd4d59;
   }
-=======
-}
->>>>>>> 551db5a3cac921939f40608823f38ca06be0061f
+
 </style>
