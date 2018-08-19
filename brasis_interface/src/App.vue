@@ -25,6 +25,13 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
+*:focus {
+    outline: 0;
+}
+button::-moz-focus-inner {
+    border: 0;
+}
+
 button {
     font-family: 'Open Sans', sans-serif;
 }
