@@ -110,6 +110,18 @@ mulher_negra_pb_ens_pub
 
 ```
 
+```{r}
+tot_bra_pub <- dadosPNAD %>% 
+  filter(rede_de_ensino == 2) %>% 
+  summarise(count = n())
+
+tot_bra_pvd <- dadosPNAD %>% 
+  filter(rede_de_ensino == 1) %>% 
+  summarise(count = n())
+```
+
+
+
 2. Valor do salario
 
 ```{r}
@@ -240,6 +252,29 @@ renda_mulher_negra_pb_esc_pvd <- dadosPNAD %>%
 
 ```
 
+```{r}
+total_mulheres_pb <- dadosPNAD %>% 
+  filter(sexo == 2,
+         uf == 25) %>% 
+  summarise(count = n())
+
+tot_m_n_pb <- dadosPNAD %>% 
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2) %>% 
+  summarise(count = n())
+
+tot_pb <- dadosPNAD %>% 
+  filter(uf == 25) %>% 
+  summarise(count = n())
+```
+
+
+```{r}
+tot_bra_al
+```
+
+
 Alfabetização
 
 ```{r}
@@ -296,5 +331,34 @@ perc_medio <- medio_modelo %>%
 perc_ens_sup <- superior_modelo %>% 
   summarise(perc = (count/total_pb$count) * 100)
 ```
+
+```{r}
+renda_familia_bra <- dadosPNAD %>% 
+  group_by(situacao_domicilio, faixa_salario) %>% 
+  summarise(mediaSalarioCasa = mean(valor_salario),
+            medianaSalarioCasa = median(valor_salario),
+            count = n())
+```
+
+
+
+```{r}
+renda_familia_modelo <- dadosPNAD %>% 
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2) %>% 
+  group_by(situacao_domicilio, faixa_salario) %>% 
+  summarise(mediaSalarioCasa = mean(valor_salario),
+            medianaSalarioCasa = median(valor_salario),
+            count = n())
+  
+  
+```
+
+
+
+
+
+
 
 
