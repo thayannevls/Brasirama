@@ -6,7 +6,9 @@
       <button @click="nextFase" class="mybutton">Próxima</button>
     </div>
     <h2 v-if="fase.msg">{{ fase.msg }}</h2>
-    <component v-if="fase.component" :is="fase.component"/>
+    <transition name="fade">
+      <component v-if="fase.component" :is="fase.component"/>
+    </transition>
   </div>
 </template>
 
@@ -28,13 +30,13 @@ export default {
     return {
       faseNum: 0,
       fases: [
-        {name: 'intro', msg: 'lá vem você...'},
         {name: 'local', msg: 'nasceu em João Pessoa'},
-        {name: 'sexo', msg: 'mulher'},
-        {name: 'cor', msg: 'de cor negra'},
-        {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag},
-        {name: 'escola', component: Schoolbar},
-        {name: 'trabalho', component: MultiChoiceVue}
+        {name: 'sexo', msg: 'mulher', anim: 'mulher-aparece', walkOut: true},
+        {name: 'cor', msg: 'de cor negra', anim: 'aceno', walkOut: true},
+        {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag, walkOut: true},
+        {name: 'escolaridade', component: Schoolbar, walkOut: true},
+        {name: 'trabalho', component: MultiChoiceVue, walkOut: true},
+        {name: 'crush', msg: '<3', walkOut: true}
       ],
       defaultOptions: {
         animationData: animationData,
@@ -46,16 +48,32 @@ export default {
   },
   computed: {
     fase: function () {
+      console.log(this.faseNum)
       return this.fases[this.faseNum]
     }
   },
   methods: {
     handleAnimation: function (anim) {
       this.anim = anim
+      this.playAnim()
     },
     nextFase: function (anim) {
-      this.faseNum += 1
-      var animFase = animRanges[this.fase.name]
+      var change = () => {
+        this.faseNum += 1
+        this.playAnim()
+      }
+      if (this.fase.walkOut) {
+        this.playAnim('caminhando')
+        setTimeout(change, 2000)
+      } else {
+        change()
+      }
+    },
+    playAnim: function (name) {
+      var animName = name
+      if (!animName) animName = this.fase.anim
+      if (!animName) animName = this.fase.name
+      var animFase = animRanges[animName]
       this.anim.playSegments(animFase.interval, true)
       this.anim.loop = animFase.loop
     }

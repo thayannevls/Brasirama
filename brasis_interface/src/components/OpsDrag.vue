@@ -57,11 +57,12 @@ export default {
 }
 </script>
 
-<style scoped>
-  .slider {
-      position: relative;
-  }
-  .image{
-      pointer-events: none;
-      width: 50%;
-  }</style>
+<style>
+.slider {
+    position: relative;
+}
+.image{
+    pointer-events: none;
+    width: 50%;
+}
+</style>
