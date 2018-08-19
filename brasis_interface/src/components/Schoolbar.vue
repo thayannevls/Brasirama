@@ -45,7 +45,7 @@ export default {
     return {
       progressGame: 0,
       max: 100,
-      count: 10,
+      count: 5,
       showButton: true,
       defaultOptions: {
         animationData: animationData,
