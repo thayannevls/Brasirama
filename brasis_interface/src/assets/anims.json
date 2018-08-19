@@ -1,5 +1,5 @@
 {
-  "mapa": {
+  "local": {
     "interval": [0, 151]
   },
   "mulher-aparece": {
@@ -10,6 +10,19 @@
     "loop": true
   },
   "aceno": {
-    "interval": [341, 471]
+    "interval": [341, 471],
+    "loop": true
+  },
+  "renda": {
+    "interval": [475, 605]
+  },
+  "escolaridade": {
+    "interval": [607, 737]
+  },
+  "trabalho": {
+    "interval": [739, 869]
+  },
+  "crush": {
+    "interval": [871, 1002]
   }
 }
