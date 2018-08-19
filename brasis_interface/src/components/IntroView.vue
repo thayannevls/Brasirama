@@ -20,8 +20,7 @@ export default {
         animationData: animationData,
         autoplay: false,
         loop: false
-      },
-      animationSpeed: 1
+      }
     }
   },
   methods: {
@@ -40,10 +39,9 @@ export default {
 </script>
 
 <style lang="scss">
-  * {
+* {
     user-select: none;
-  }
-
+}
 .play-button {
     position: absolute;
     top: 50%;
@@ -62,11 +60,15 @@ export default {
         box-shadow: 0px 0px 0px #fd4d59;
     }
 }
- .fullscreen {
+.fullscreen {
+    background-color: black;
     position: fixed;
-    top: 0;
+    /* height: 100vh; */
+    height: 100%;
+    width: 100%;
     left: 0;
-    height: 100vh;
+    top: 0;
+    overflow: hidden;
 }
 button {
     padding:15px;
