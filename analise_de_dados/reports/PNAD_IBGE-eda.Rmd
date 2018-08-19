@@ -7,16 +7,15 @@ output: html_notebook
 ```{r , warning=FALSE, message=FALSE}
 library(tidyverse)
 library(here)
-library(plotly)
 theme_set(theme_bw())
 ```
 
 
 ```{r}
-dados_2016 = read_csv(here("data/dados_2016.csv"))
-dados_2017 = read_csv(here("data/dados_2017.csv"))
+#dados_2016 = read_csv(here("data/dados_2016.csv"))
+dadosPNAD = read_csv(here("data/dados_2017_todos.csv"))
 
-dadosPNAD = merge(dados_2016, dados_2017)
+#dadosPNAD = merge(dados_2016, dados_2017)
 ```
 
 
@@ -77,10 +76,9 @@ mulher_negra_pb <- dadosPNAD %>%
          uf == 25) %>%
   summarise(count = n())
 
-
 # porcentagem de mulheres negras paraibanas sobre a populacao total brasileira
 perc_mulher_nergra_pb <- mulher_negra_pb %>% 
-  summarise(perc = mulher_negra_pb$count/total_brasileiros$count)
+  summarise(perc = (mulher_negra_pb$count/total_brasileiros$count)*100)
   
 perc_mulher_nergra_pb
 
@@ -111,12 +109,6 @@ mulher_negra_pb_ens_pub <- dadosPNAD %>%
 mulher_negra_pb_ens_pub
 
 ```
-1.2 Ensino superior
-
-```{r}
-
-```
-
 
 2. Valor do salario
 
@@ -129,15 +121,6 @@ mulher_negra_pb_salarios <- dadosPNAD %>%
   summarise(count = n())
 
 ```
-
-0 Renda:
-
-0.1 Pelo local, gênero
-
-```{r}
-
-```
-
 
 2 Trabalho
 
@@ -169,22 +152,149 @@ mulher_negra_pb_not_cart_assinada
 1. Calcular renda da pessoa com base no sexo, local que nasceu, cor
 
 ```{r}
-# Tá estranho ainda, jaja ajeito
-renda_sexo_mulher <- dadosPNAD %>% 
+# Quantidade de pessoas que possuem cada renda(enumeradas de 1 a 8)
+# Obs.: retorna a quantidade de mulheres que recebem a respectiva renda
+renda_mulheres_salario <- dadosPNAD %>%
+  filter(sexo == 2) %>% 
   group_by(faixa_salario) %>% 
-  summarise(mediaSalarial = median(faixa_salario)) %>% 
-  filter(sexo == 2)
+  summarise(count = n())
 
-renda_sexo_mulher$mediaSalarial
-  
+renda_homem_salario <- dadosPNAD %>% 
+  filter(sexo == 1) %>% 
+  group_by(faixa_salario) %>% 
+  summarise(count = n())
+```
+
+
+```{r}
+# Para o modelo: (renda) paraibana negra
+# por faixa de salario
+renda_mulher_negra_pb <- dadosPNAD %>% 
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2) %>% 
+  group_by(faixa_salario) %>% 
+  summarise(count = n())
+
+perc_renda_mulher_negra_pb_1 <- renda_mulher_negra_pb %>% 
+  filter(faixa_salario == 1) %>% 
+  summarise(perc = renda_mulher_negra_pb$count/total_brasileiros$count)
 
 ```
 
 ```{r}
-# Quantidade de pessoas que possuem cada renda(enumeradas de 1 a 8)
+# Esse aqui considera NA :/
+# Retirei o valor mediano de cada faixa e o número de ocorrências da faixa
+renda_perfil <- dadosPNAD %>% 
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2) %>% 
+  group_by(faixa_salario) %>% 
+  summarise(count = n(),
+            media = mean(valor_salario),
+            mediana = median(valor_salario))
 
-faixa_qtd <- dadosPNAD %>%
+```
+
+2. probabilidade de escola pública e privada de acordo com a renda
+
+```{r}
+renda_total_bra <- dadosPNAD %>% 
   group_by(faixa_salario) %>% 
   summarise(count = n())
 ```
+
+```{r}
+renda_bra <- dadosPNAD %>% 
+  group_by(faixa_salario) %>% 
+  summarise(count = n(), 
+            media = mean(valor_salario),
+            mediana = median(valor_salario))
+
+```
+
+
+
+```{r}
+renda_mulher_negra_pb_esc_pub <- dadosPNAD %>% 
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2,
+         rede_de_ensino == 2) %>% 
+  group_by(faixa_salario) %>% 
+  summarise(count = n(), 
+            media = mean(valor_salario),
+            mediana = median(valor_salario))
+
+
+renda_mulher_negra_pb_esc_pvd <- dadosPNAD %>% 
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2,
+         rede_de_ensino == 1) %>% 
+  group_by(faixa_salario) %>% 
+  summarise(count = n(), 
+            media = mean(valor_salario),
+            mediana = median(valor_salario))
+
+
+```
+
+Alfabetização
+
+```{r}
+# Quantidade de mulheres do modelo que concluíram os niveis de escolaridade abaixo
+alfabetizada_modelo <- dadosPNAD %>%  
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2,
+         nivel_escolar_tri_atual  %in% 1:2 | nivel_escolar %in% 1:2) %>% 
+  summarise(count = n())
+
+fundamental_modelo <- dadosPNAD %>%
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2,
+         nivel_escolar_tri_atual  %in% 4:6 | nivel_escolar %in% 4:6 ) %>% 
+  summarise(count = n())
+
+medio_modelo <- dadosPNAD %>%
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2,
+         nivel_escolar_tri_atual  %in% 7:9 | nivel_escolar %in% 7:9 ) %>% 
+  summarise(count = n())
+
+superior_modelo <- dadosPNAD %>% 
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2,
+         nivel_escolar_tri_atual  %in% 12:15 | nivel_escolar %in% 12:15) %>% 
+  summarise(count = n())
+
+```
+
+
+```{r}
+total_pb <- dadosPNAD %>% 
+  filter(uf == 25) %>% 
+  summarise(count = n())
+```
+
+
+```{r}
+# Proporção de mulheres negras paraibanas que terminam o ensino superior com relação ao total de paraibanos
+perc_alfa <- alfabetizada_modelo %>% 
+  summarise(perc = (count/total_pb$count) * 100)
+
+perc_fundamental <- fundamental_modelo %>% 
+  summarise(perc = (count/total_pb$count) * 100)
+
+perc_medio <- medio_modelo %>% 
+  summarise(perc = (count/total_pb$count) * 100)
+
+perc_ens_sup <- superior_modelo %>% 
+  summarise(perc = (count/total_pb$count) * 100)
+```
+
 

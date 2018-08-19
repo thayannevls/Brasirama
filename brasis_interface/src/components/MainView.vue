@@ -6,7 +6,9 @@
       <button @click="nextFase" class="mybutton">Próxima</button>
     </div>
     <h2 v-if="fase.msg">{{ fase.msg }}</h2>
-    <component v-if="fase.component" :is="fase.component"/>
+    <transition name="fade">
+      <component v-if="fase.component" :is="fase.component"/>
+    </transition>
   </div>
 </template>
 
@@ -28,12 +30,11 @@ export default {
     return {
       faseNum: 0,
       fases: [
-        {name: 'intro', msg: 'lá vem você...'},
         {name: 'local', msg: 'nasceu em João Pessoa'},
-        {name: 'sexo', msg: 'mulher'},
-        {name: 'cor', msg: 'de cor negra'},
+        {name: 'sexo', msg: 'mulher', anim: 'mulher-aparece'},
+        {name: 'cor', msg: 'de cor negra', anim: 'aceno'},
         {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag},
-        {name: 'escola', component: Schoolbar},
+        {name: 'escolaridade', component: Schoolbar},
         {name: 'trabalho', component: MultiChoiceVue}
       ],
       defaultOptions: {
@@ -46,16 +47,24 @@ export default {
   },
   computed: {
     fase: function () {
+      console.log(this.faseNum)
       return this.fases[this.faseNum]
     }
   },
   methods: {
     handleAnimation: function (anim) {
       this.anim = anim
+      this.playAnim()
     },
     nextFase: function (anim) {
       this.faseNum += 1
-      var animFase = animRanges[this.fase.name]
+      this.playAnim()
+    },
+    playAnim: function (name) {
+      var animName = name
+      if (!animName) animName = this.fase.anim
+      if (!animName) animName = this.fase.name
+      var animFase = animRanges[animName]
       this.anim.playSegments(animFase.interval, true)
       this.anim.loop = animFase.loop
     }
