@@ -1,7 +1,9 @@
 <template>
   <div>
     <div id="top-row">
-      <button @click="nextFase" class="mybutton">Próxima</button>
+      <transition name="fade">
+        <button v-if="showButton" @click="nextFase" class="mybutton">Próxima</button>
+      </transition>
       <lottie :options="defaultOptions" @animCreated="handleAnimation" />
     </div>
     <transition name="fade">
@@ -41,7 +43,8 @@ export default {
         autoplay: false,
         loop: false
       },
-      animationSpeed: 1
+      animationSpeed: 1,
+      showButton: true
     }
   },
   computed: {
@@ -72,8 +75,14 @@ export default {
       if (!animName) animName = this.fase.anim
       if (!animName) animName = this.fase.name
       var animFase = animRanges[animName]
+      this.showButton = false
       this.anim.playSegments(animFase.interval, true)
       this.anim.loop = animFase.loop
+      var animPlayed = () => {
+        this.showButton = true
+      }
+      this.anim.addEventListener('complete', animPlayed)
+      this.anim.addEventListener('loopComplete', animPlayed)
     }
   }
 }
@@ -109,10 +118,7 @@ button:focus {
     right: 0;
     z-index: 100;
     transform: translate(0%, -50%);
-    transition:
-        margin-top 0.3s ease,
-        margin-left 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 
     background:#ff0000;
     border: solid 1px #ff0000;
@@ -128,12 +134,10 @@ button:focus {
         0px 8px 0px #201b53,0px 9px 0px #201b53;
   }
   .mybutton:active {
-    transition:
-        margin-top 0.0s ease,
-        box-shadow 0.0s ease;
-        margin-top:10px;
-        box-shadow:
-          0px 0px 0px #201b53,0px 0px 0px #201b53,
-          0px 0px 0px #201b53,0px 0px 0px #201b53;
+    transition: all 0.0s ease;
+    margin-top: 10px;
+    box-shadow:
+      0px 0px 0px #201b53,0px 0px 0px #201b53,
+      0px 0px 0px #201b53,0px 0px 0px #201b53;
   }
 </style>
