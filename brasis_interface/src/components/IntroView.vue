@@ -38,14 +38,10 @@ export default {
 }
 </script>
 
-<<<<<<< HEAD
-<style scoped>
-  * {
-    user-select: none;
-  }
-=======
 <style lang="scss">
->>>>>>> 551db5a3cac921939f40608823f38ca06be0061f
+* {
+    user-select: none;
+}
 .play-button {
     position: absolute;
     top: 50%;
@@ -82,45 +78,5 @@ button {
     border-radius: 50%;
     text-transform: uppercase;
     font-size: 20px;
-<<<<<<< HEAD
-    color: #201b53;
-    user-select: none;
-  }
-  button:active {
-    outline: none;
-  }
-  button:focus {
-    outline: 0;
-  }
-  .mybutton {
-    transition:
-        margin-top 0.3s ease,
-        margin-left 0.3s ease,
-        box-shadow 0.3s ease;
-
-    background:rgb(255, 163, 143);
-    border: solid 1px rgb(255, 163, 143);
-    box-shadow:
-        0px 0px 0px #fd4d59, 0px 1px 0px #fd4d59,
-        0px 1px 0px #fd4d59,0px 2px 0px #fd4d59,
-        0px 2px 0px #fd4d59,0px 3px 0px #fd4d59,
-        0px 3px 0px #fd4d59,0px 4px 0px #fd4d59,
-        0px 4px 0px #fd4d59,0px 5px 0px #fd4d59,
-        0px 5px 0px #fd4d59,0px 6px 0px #fd4d59,
-        0px 6px 0px #fd4d59,0px 7px 0px #fd4d59,
-        0px 7px 0px #fd4d59,0px 8px 0px #fd4d59,
-        0px 8px 0px #fd4d59,0px 9px 0px #fd4d59;
-  }
-  .mybutton:active {
-    transition:
-        margin-top 0.0s ease,
-        box-shadow 0.0s ease;
-        margin-top:10px;
-        box-shadow:
-          0px 0px 0px #fd4d59,0px 0px 0px #fd4d59,
-          0px 0px 0px #fd4d59,0px 0px 0px #fd4d59;
-  }
-=======
 }
->>>>>>> 551db5a3cac921939f40608823f38ca06be0061f
 </style>
