@@ -1,11 +1,9 @@
 <template>
   <div>
-    <h1>{{ faseNum }} - {{ fase.name }}</h1>
-    <div id="app">
-      <lottie :options="defaultOptions" @animCreated="handleAnimation" />
+    <div id="top-row">
       <button @click="nextFase" class="mybutton">Próxima</button>
+      <lottie :options="defaultOptions" @animCreated="handleAnimation" />
     </div>
-    <h2 v-if="fase.msg">{{ fase.msg }}</h2>
     <transition name="fade">
       <component v-if="fase.component" :is="fase.component"/>
     </transition>
@@ -82,10 +80,15 @@ export default {
 </script>
 
 <style scoped>
-  * {
+* {
     user-select: none;
-  }
-  button {
+}
+#top-row {
+    border-bottom: 1px solid #b8a9ae;
+    position: relative;
+    margin-top: 100px;
+}
+button {
     padding:15px;
     margin: 0;
     width:150px;
@@ -93,14 +96,19 @@ export default {
     border-radius: 50%;
     text-transform: uppercase;
     font-size: 20px;
-  }
-  button:active {
+}
+button:active {
     outline: none;
-  }
-  button:focus {
+}
+button:focus {
     outline: 0;
-  }
-  .mybutton {
+}
+.mybutton {
+    position:absolute;
+    top: 50%;
+    right: 0;
+    z-index: 100;
+    transform: translate(0%, -50%);
     transition:
         margin-top 0.3s ease,
         margin-left 0.3s ease,
