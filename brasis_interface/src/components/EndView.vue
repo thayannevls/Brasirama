@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="end-text">Você pode jogar outra vida, mas continuará em Brasirama.</p>
+    <p class="end-text">Você pode jogar outra vida,<br>mas continuará em Brasirama.</p>
     <button class="end-btn">JOGAR NOVAMENTE</button>
   </div>
 </template>
@@ -14,6 +14,10 @@ export default {
 <style lang="scss">
 .end-text {
     text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #201b53;
+    margin: 70px;
 }
 .end-btn {
     display: block;

@@ -53,8 +53,6 @@ button::-moz-focus-inner {
     display: block;
 }
 
-
-
 button {
     font-family: 'Open Sans', sans-serif;
     padding:15px;

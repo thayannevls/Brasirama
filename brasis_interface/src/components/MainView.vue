@@ -23,6 +23,7 @@ import Cor from './Cor.vue'
 import Mulher from './Mulher.vue'
 import EndView from './EndView.vue'
 import Trabalho from './Trabalho.vue'
+import Crush from './Crush.vue'
 
 export default {
   name: 'MainView',
@@ -37,7 +38,7 @@ export default {
         {name: 'escolaridade-rede', anim: 'escolaridade', component: MultiChoice},
         {name: 'escolaridade-corre', anim: 'escolaridade', component: Schoolbar, walkOut: true},
         {name: 'trabalho', component: Trabalho, walkOut: true},
-        {name: 'crush', msg: '<3', walkOut: true},
+        {name: 'crush', msg: '<3', component: Crush, walkOut: true},
         {name: 'fim', msg: '<3', anim: 'caminhando', component: EndView}
       ],
       defaultOptions: {
