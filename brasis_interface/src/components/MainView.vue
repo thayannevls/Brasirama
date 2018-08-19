@@ -18,19 +18,21 @@ import * as animationData from '../assets/mulher.json'
 import animRanges from '../assets/anims.json'
 import MultiChoiceVue from './MultiChoice.vue'
 import Schoolbar from './Schoolbar.vue'
+import Location from './Location.vue'
 
 export default {
   name: 'MainView',
   components: {
     'ops-drag': OpsDrag,
     'multichoice': MultiChoiceVue,
+    'location': Location,
     'schoolbar': Schoolbar
   },
   data () {
     return {
       faseNum: 0,
       fases: [
-        {name: 'local', msg: 'nasceu em João Pessoa'},
+        {name: 'local', msg: 'nasceu em João Pessoa', component: Location},
         {name: 'sexo', msg: 'mulher', anim: 'mulher-aparece', walkOut: true},
         {name: 'cor', msg: 'de cor negra', anim: 'aceno', walkOut: true},
         {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag, walkOut: true},
@@ -93,7 +95,7 @@ export default {
     user-select: none;
 }
 #top-row {
-    border-bottom: 1px solid #b8a9ae;
+    /* border-bottom: 1px solid #b8a9ae; */
     position: relative;
     margin-top: 100px;
 }
