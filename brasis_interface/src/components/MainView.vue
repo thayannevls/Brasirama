@@ -82,6 +82,9 @@ export default {
 </script>
 
 <style scoped>
+  * {
+    user-select: none;
+  }
   button {
     padding:15px;
     margin: 0;
