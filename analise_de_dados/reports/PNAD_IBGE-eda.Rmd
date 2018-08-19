@@ -340,8 +340,6 @@ renda_familia_bra <- dadosPNAD %>%
             count = n())
 ```
 
-
-
 ```{r}
 renda_familia_modelo <- dadosPNAD %>% 
   filter(sexo == 2,
@@ -356,6 +354,23 @@ renda_familia_modelo <- dadosPNAD %>%
 ```
 
 
+```{r}
+#02 - conjuge de sexo diferente
+#03 - conjuge do mesmo sexo
+mora_com_quem <- dadosPNAD %>% 
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2) %>% 
+  group_by(condicao_domicilio) %>% 
+  summarise(count = n())
+
+
+pb_mora <- dadosPNAD %>% 
+  filter(uf == 25,
+         condicao_domicilio %in% 2:3) %>% 
+  group_by(condicao_domicilio) %>% 
+  summarise(count = n())
+```
 
 
 
