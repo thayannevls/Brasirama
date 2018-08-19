@@ -14,13 +14,12 @@
       <div class="escolaridade"><img src="/static/image/escola_superior.svg"></div>
     </div>
 
-    <div class="bar" id="barra" v-if="count > 0">
+    <div class="bar" id="barra">
       <div id="progress" class="graph">
         <div id="bar" :style="{width: progressGame + 'px'}"><p>{{progressGame}}%</p></div></div>
     </div>
     <div>
-<!--      <progress :value="progressGame" :max="100" show-progress animated></progress> -->
-      <button @click="alterData()">
+      <button v-if="count > 0" @click="alterData()">
          Click me!
      </button>
     </div>
