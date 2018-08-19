@@ -1,12 +1,16 @@
 <template>
   <div>
-    <ul style="list-style: none;">
-      <li :key="choice" v-for="choice in choices">
-        <button :class="{ disabled: wasHovered(choice), mybutton:!wasHovered(choice) }" v-on:mouseover="hover(choice)">
-          {{ choice }}
-        </button>
-      </li>
-    </ul>
+    <div class="col">
+      <img src="/static/image/tela_4_titulo_bts.svg" class="renda-top-text"/>
+      <ul style="list-style: none;">
+        <li :key="choice" v-for="choice in choices">
+          <button :class="{ disabled: wasHovered(choice), mybutton:!wasHovered(choice) }" v-on:mouseover="hover(choice)">
+            {{ choice }}
+          </button>
+        </li>
+      </ul>
+    </div>
+    <img src="/static/image/tela_4_frase.svg" class="col-right-text"/>
   </div>
 </template>
 

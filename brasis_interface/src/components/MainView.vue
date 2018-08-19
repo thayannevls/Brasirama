@@ -9,7 +9,7 @@
       </transition>
       <lottie :options="defaultOptions" @animCreated="handleAnimation" />
     </div>
-    <transition name="fade">
+    <transition name="fade" mode="out-in">
       <component v-if="fase.component" :is="fase.component"/>
     </transition>
   </div>
@@ -19,7 +19,7 @@
 import OpsDrag from './OpsDrag.vue'
 import * as animationData from '../assets/mulher.json'
 import animRanges from '../assets/anims.json'
-import MultiChoiceVue from './MultiChoice.vue'
+import MultiChoice from './MultiChoice.vue'
 import Schoolbar from './Schoolbar.vue'
 import Location from './Location.vue'
 import Mulher from './Mulher.vue'
@@ -34,8 +34,9 @@ export default {
         {name: 'sexo', msg: 'mulher', anim: 'mulher-aparece', component: Mulher, walkOut: true},
         {name: 'cor', msg: 'de cor negra', anim: 'aceno', walkOut: true},
         {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag, walkOut: true},
-        {name: 'escolaridade', component: Schoolbar, walkOut: true},
-        {name: 'trabalho', component: MultiChoiceVue, walkOut: true},
+        {name: 'escolaridade-rede', anim: 'escolaridade', component: MultiChoice},
+        {name: 'escolaridade-corre', anim: 'escolaridade', component: Schoolbar, walkOut: true},
+        {name: 'trabalho', component: MultiChoice, walkOut: true},
         {name: 'crush', msg: '<3', walkOut: true}
       ],
       defaultOptions: {
