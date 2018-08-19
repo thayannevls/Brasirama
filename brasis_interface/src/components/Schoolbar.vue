@@ -8,13 +8,18 @@
         O TEMPO ACABOU
       </div>
     </div>
-    <div class="bar" id="barra" v-if="count > 0">
-      <div id="progress" class="graph" >
-        <div id="bar" :style="{width: progressGame + 'px'}"><p>{{progressGame}}% complete</p></div></div>
+    <div :style="{width: '50%', height: '', display: 'flex'}">
+      <div class="escolaridade"><img src="/static/image/escola_fundamental.svg"></div>
+      <div class="escolaridade"><img src="/static/image/escola_medio.svg"></div>
+      <div class="escolaridade"><img src="/static/image/escola_superior.svg"></div>
+    </div>
+
+    <div class="bar" id="barra">
+      <div id="progress" class="graph">
+        <div id="bar" :style="{width: progressGame + 'px'}"><p>{{progressGame}}%</p></div></div>
     </div>
     <div>
-<!--      <progress :value="progressGame" :max="100" show-progress animated></progress> -->
-      <button @click="alterData()">
+      <button v-if="count > 0" @click="alterData()">
          Click me!
      </button>
     </div>
@@ -34,7 +39,7 @@ export default {
   },
   methods: {
     alterData: function () {
-      this.progressGame++
+      this.progressGame += 5
     },
     run: function (time) {
       this.count--
@@ -63,12 +68,15 @@ export default {
     border: 1px solid red;
   }
   .graph{
-    width: 500px; /* width and height are arbitrary, just make sure the #bar styles are changed accordingly */
+    width: 50%; /* width and height are arbitrary, just make sure the #bar styles are changed accordingly */
     height: 30px;
     background: #e98155;
     border: 1px solid #888;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8a8a8', endColorstr='#cccccc',GradientType=0 );
     position: relative;
+  }
+  .escolaridade{
+    width: 33%;
   }
 
 </style>
