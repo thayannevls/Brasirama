@@ -1,6 +1,8 @@
 <template>
   <div class="fullscreen">
-    <button v-if="showButton" class="play-button" @click="play">Começar</button>
+    <transition name="fade">
+      <button v-if="showButton" class="play-button" @click="play">Começar</button>
+    </transition>
     <lottie :options="defaultOptions" @animCreated="handleAnimation" />
   </div>
 </template>
@@ -37,7 +39,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .play-button {
     position: absolute;
     top: 50%;
@@ -46,18 +48,12 @@ export default {
     font-weight: bold;
     color: #201b53;
     z-index: 100;
-    transition:
-        margin-top 0.3s ease,
-        margin-left 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     background: #ffa38f;
     border: none;
     outline: none;
     box-shadow: 0px 9px 0px #fd4d59;
     &:active {
-        transition:
-            margin-top 0.0s ease,
-            box-shadow 0.0s ease;
         margin-top: 10px;
         box-shadow: 0px 0px 0px #fd4d59;
     }
@@ -76,11 +72,5 @@ button {
     border-radius: 50%;
     text-transform: uppercase;
     font-size: 20px;
-}
-button:active {
-    outline: none;
-}
-button:focus {
-    outline: 0;
 }
 </style>

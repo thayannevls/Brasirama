@@ -25,7 +25,10 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-*:focus {
+button:active {
+    outline: none;
+}
+button:focus {
     outline: 0;
 }
 button::-moz-focus-inner {
