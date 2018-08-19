@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition name="fade">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -11,15 +13,22 @@ export default {
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-    #app {
-      font-family: 'Open Sans', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+#app {
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    button {
-      font-family: 'Open Sans', sans-serif;
-    }
+button {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 2s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
 </style>

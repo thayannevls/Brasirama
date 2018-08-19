@@ -61,12 +61,6 @@ export default {
 .slider {
     position: relative;
 }
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 2s;
-}
-.fade-enter, .fade-leave-to {
-    opacity: 0;
-}
 .image{
     pointer-events: none;
     width: 50%;
