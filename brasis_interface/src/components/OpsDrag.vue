@@ -72,6 +72,7 @@ export default {
     max-width: 400px;
     display: inline-block;
     margin-top: 50px;
+    padding: 20px;
 }
 .renda-ops-text {
     max-width: 400px;

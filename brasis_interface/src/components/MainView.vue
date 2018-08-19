@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main-view">
     <div id="top-row">
       <transition name="fade">
         <img v-if="showButton" @click="nextFase" class="next-button" src="static/image/btn_proxima.svg"/>
@@ -63,6 +63,7 @@ export default {
       var change = () => {
         this.faseNum += 1
         this.playAnim()
+        if (this.faseNum >= this.fases.length) this.showButton = false
         // if (this.faseNum < this.fases.length) this.playAnim()
         // else router.push({name: 'end'})
       }
@@ -91,9 +92,11 @@ export default {
 }
 </script>
 
-<style scoped>
-* {
-    user-select: none;
+<style>
+#main-view {
+    margin: auto;
+    display: block;
+    max-width: 1000px;
 }
 
 #top-row {
@@ -112,43 +115,4 @@ export default {
 .imagem{
     width: 20%;
 }
-
-button {
-    padding:15px;
-    margin: 0;
-    width:150px;
-    height: 150px;
-    border-radius: 50%;
-    text-transform: uppercase;
-    font-size: 20px;
-}
-button:active {
-    outline: none;
-}
-button:focus {
-    outline: 0;
-}
-.mybutton {
-    transition: all 0.3s ease;
-
-    background:#ff0000;
-    border: solid 1px #ff0000;
-    box-shadow:
-        0px 0px 0px #201b53, 0px 1px 0px #201b53,
-        0px 1px 0px #201b53,0px 2px 0px #201b53,
-        0px 2px 0px #201b53,0px 3px 0px #201b53,
-        0px 3px 0px #201b53,0px 4px 0px #201b53,
-        0px 4px 0px #201b53,0px 5px 0px #201b53,
-        0px 5px 0px #201b53,0px 6px 0px #201b53,
-        0px 6px 0px #201b53,0px 7px 0px #201b53,
-        0px 7px 0px #201b53,0px 8px 0px #201b53,
-        0px 8px 0px #201b53,0px 9px 0px #201b53;
-  }
-  .mybutton:active {
-    transition: all 0.0s ease;
-    margin-top: 10px;
-    box-shadow:
-      0px 0px 0px #201b53,0px 0px 0px #201b53,
-      0px 0px 0px #201b53,0px 0px 0px #201b53;
-  }
 </style>

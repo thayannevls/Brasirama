@@ -12,18 +12,20 @@ export default {
 </script>
 
 <style lang="scss">
-  .end-text {
+.end-text {
     text-align: center;
-  }
-  .end-btn {
+}
+.end-btn {
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     color: #201b53;
-    background-color: #fd4d59;
+    background: #ffa38f;
+    width: auto;
+    height: auto;
     border: none;
-    padding: 10px;
+    padding: 15px;
     text-weight: bold;
     box-shadow: 0px 5px 0px #201b53;
   }

@@ -30,7 +30,6 @@ html, body, #app {
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    max-width: 1000px;
 }
 
 button:active {
@@ -55,8 +54,15 @@ button::-moz-focus-inner {
 }
 
 
+
 button {
     font-family: 'Open Sans', sans-serif;
+    padding:15px;
+    margin: 0;
+    width:150px;
+    height: 60px;
+    text-transform: uppercase;
+    font-size: 20px;
 }
 
 .fade-enter-active, .fade-leave-active {

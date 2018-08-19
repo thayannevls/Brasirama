@@ -2,11 +2,11 @@
   <div>
     <div class="col">
       <div>
-        <button>
-          Escola Pública
-        </button>
-        <button :class="{ disabled: wasHovered(choices[0]), mybutton:!wasHovered(choices[0]) }" v-on:mouseover="hover(choices[0])">
+        <button :class="getClass()" v-on:mouseover="hover(choices[0])">
           {{ !wasHovered(choices[0])?'Escola Privada':'Infelizmente você não está nos 25,5% de seu perfil que conseguiram estudo privado' }}
+        </button>
+        <button class="escola-btn">
+          Escola Pública
         </button>
       </div>
     </div>
@@ -24,6 +24,9 @@ export default {
     }
   },
   methods: {
+    getClass: function () {
+      return { 'escola-disabled': this.wasHovered(this.choices[0]), 'escola-btn': true }
+    },
     wasHovered: function (choice) {
       return this.hovered.indexOf(choice) !== -1
     },
@@ -39,64 +42,28 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 * {
-  user-select: none;
+    user-select: none;
 }
-.disabled {
-  pointer-events: none;
-  padding-top:10px;
-  background: #fd4d59 ;
-  box-shadow:
-      0px 0px 0px #fd4d59,0px 0px 0px #fd4d59,
-      0px 0px 0px #fd4d59,0px 0px 0px #fd4d59;
-  }
-  button {
-      padding:15px;
-      margin: 0;
-      width:75px;
-      height: 75px;
-      text-transform: uppercase;
-      font-size: 10px;
-      color: #201b53;
-  }
-  ul li{margin-bottom:10px;}
-  button:active {
-    outline: none;
-  }
-  button:focus {
-    outline: 0;
-  }
-  .mybutton {
+.escola-btn {
+    margin: 10px;
+    width: 300px;
+    height: 75px;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #201b53;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 14px;
+    background: rgb(255, 163, 143);
+    border: solid 0px rgb(255, 163, 143);
+    box-shadow: 0px 9px 0px #fd4d59;
 }
-button {
-  padding: 15px;
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 14px;
-  background: rgb(255, 163, 143);
-  border: solid 1px rgb(255, 163, 143);
-  box-shadow: 0px 0px 0px #fd4d59, 0px 1px 0px #fd4d59, 0px 1px 0px #fd4d59,
-    0px 2px 0px #fd4d59, 0px 2px 0px #fd4d59, 0px 3px 0px #fd4d59,
-    0px 3px 0px #fd4d59, 0px 4px 0px #fd4d59, 0px 4px 0px #fd4d59,
-    0px 5px 0px #fd4d59, 0px 5px 0px #fd4d59, 0px 6px 0px #fd4d59,
-    0px 6px 0px #fd4d59, 0px 7px 0px #fd4d59, 0px 7px 0px #fd4d59,
-    0px 8px 0px #fd4d59, 0px 8px 0px #fd4d59, 0px 9px 0px #fd4d59;
-}
-ul li {
-  margin-bottom: 10px;
-}
-button:active {
-  outline: none;
-}
-button:focus {
-  outline: 0;
-}
-.mybutton {
-
-}
-.mybutton:hover {
-  box-shadow: 0px 0px 0px #e98155 , 0px 0px 0px #e98155 , 0px 0px 0px #e98155 ,
-    0px 0px 0px #e98155 ;
+.escola-disabled {
+    pointer-events: none;
+    padding-top:10px;
+    background: #fd4d59;
+    box-shadow: 0px 0px 0px #fd4d59;
 }
 </style>
