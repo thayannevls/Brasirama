@@ -1,11 +1,8 @@
 <template>
   <div>
-    <div class="cabecalho">
-      <img class="imagem" src="/static/image/logo_brasirama.svg"/>
-    </div>
     <div id="top-row">
       <transition name="fade">
-        <img v-if="showButton" @click="nextFase" class="next-button" src="/static/image/btn_proxima.svg"/>
+        <img v-if="showButton" @click="nextFase" class="next-button" src="static/image/btn_proxima.svg"/>
       </transition>
       <lottie :options="defaultOptions" @animCreated="handleAnimation" />
     </div>
@@ -113,13 +110,6 @@ export default {
     z-index: 100;
     transform: translate(0%, -50%);
 }
-.cabecalho{
-    width: 100%;
-    height: 10%;
-    background: #201b53;
-    margin-top: 0%;
-}
-
 .imagem{
     width: 20%;
 }

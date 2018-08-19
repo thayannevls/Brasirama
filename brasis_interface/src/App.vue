@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div class="cabecalho">
+      <img class="logo" src="static/image/logo_brasirama.svg"/>
+    </div>
     <transition name="fade">
       <router-view/>
     </transition>
@@ -18,13 +21,16 @@ export default {
 html {
     background-color: #ffebe7;
 }
+html, body, #app {
+    margin: 0;
+    padding: 0;
+}
 
 #app {
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     max-width: 1000px;
-    margin: auto;
 }
 
 button:active {
@@ -36,6 +42,18 @@ button:focus {
 button::-moz-focus-inner {
     border: 0;
 }
+.cabecalho{
+    width: 100vw;
+    height: 50px;
+    background: #201b53;
+    padding: 5px;
+}
+.logo {
+    width: 200px;
+    margin: auto;
+    display: block;
+}
+
 
 button {
     font-family: 'Open Sans', sans-serif;

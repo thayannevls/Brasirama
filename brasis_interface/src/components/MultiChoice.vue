@@ -10,7 +10,7 @@
         </button>
       </div>
     </div>
-    <img src="/static/image/tela_4_frase.svg" class="col-right-text"/>
+    <img src="static/image/tela_4_frase.svg" class="col-right-text"/>
   </div>
 </template>
 
