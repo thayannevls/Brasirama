@@ -2,7 +2,7 @@
   <div>
     <div id="top-row">
       <transition name="fade">
-        <button v-if="showButton" @click="nextFase" class="mybutton">Próxima</button>
+        <img v-if="showButton" @click="nextFase" class="next-button" src="/static/image/btn_proxima.svg"/>
       </transition>
       <lottie :options="defaultOptions" @animCreated="handleAnimation" />
     </div>
@@ -97,6 +97,15 @@ export default {
     position: relative;
     margin-top: 100px;
 }
+.next-button {
+    height: 80px;
+    position:absolute;
+    top: 50%;
+    right: 0;
+    z-index: 100;
+    transform: translate(0%, -50%);
+}
+
 button {
     padding:15px;
     margin: 0;
@@ -113,11 +122,6 @@ button:focus {
     outline: 0;
 }
 .mybutton {
-    position:absolute;
-    top: 50%;
-    right: 0;
-    z-index: 100;
-    transform: translate(0%, -50%);
     transition: all 0.3s ease;
 
     background:#ff0000;
