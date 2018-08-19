@@ -5,7 +5,7 @@
     </div>
     <div id="top-row">
       <transition name="fade">
-        <img v-if="showButton" @click="nextFase" class="next-button" src="/static/image/btn_proxima.svg"/>
+        <img v-if="showButton" @click="nextFase" class="next-button" src="static/image/btn_proxima.svg"/>
       </transition>
       <lottie :options="defaultOptions" @animCreated="handleAnimation" />
     </div>
