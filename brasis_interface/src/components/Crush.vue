@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Cor',
+  name: 'Crush',
   data () {
     return {
     }
