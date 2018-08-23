@@ -1,0 +1,128 @@
+---
+title: "Brasirama"
+output: html_notebook
+---
+
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+```
+
+
+```{r setup, message=FALSE, warning=FALSE}
+dados = read_csv(here("data/dados_2017_todos.csv"))
+```
+
+```{r}
+total_brasileiros <- dados %>% 
+  summarise(total_bra = n())
+
+# resposta = 2268651 brasileiros
+
+total_paraibanos <- dados %>% 
+  filter(uf == 25) %>% 
+  summarise(total_pb = n(),
+            perc_pb = (total_pb/total_brasileiros$total_bra)*100)
+
+# resposta: nº = 60787 e perc = 2.679434 %
+
+total_mulheres <- dados %>% 
+  filter(sexo == 2) %>% 
+  summarise(total_mul = n(),
+            perc_mul = (total_mul/total_brasileiros$total_bra)*100)
+
+# resposta: nº = 1157631 e perc = 51.02728 %
+
+total_mulheres_pb <- dados %>% 
+  filter(sexo == 2,
+         uf == 25) %>% 
+  summarise(tot_mul_pb = n(),
+            perc_mul_pb = (tot_mul_pb/total_brasileiros$total_bra)*100,
+            perc_mul_pb_bra = (tot_mul_pb/total_mulheres$total_mul)*100)
+
+# resposta: nº = 31599 
+# perc_total_brasileiros = 1.392854 %
+# perc_mulheres_pb_mulheres_bra = 2.729626 %
+```
+
+
+### Características para o modelo que iremos analisar:
+
+- Sexo: Feminino 
+- Cor: Negra
+- UF: Paraíba - PB
+
+#### Números para paraibanas negras
+```{r}
+perfil <- dados %>% 
+  filter(sexo == 2,
+         cor == 2,
+         uf == 25) %>% 
+  summarise(count_perfil = n(),
+            perc_perfil = (count_perfil/total_brasileiros$total_bra)*100)
+
+# nº de paraibanas negras = 1473
+# porcentagem de pessoas com esse perfil com relação ao total de brasileiros = 0.06492845 %
+```
+
+### Escolaridade
+
+
+```{r}
+# Características para os brasileiros
+brasileiros_ens_pub <- dados %>% 
+  filter(rede_de_ensino == 2) %>% 
+  summarise(tot_ens_pub = n(),
+            perc_bra = (tot_ens_pub/total_brasileiros$total_bra)*100)
+
+```
+
+
+```{r}
+# Ensino público
+perfil_ensino_pub <- dados %>% 
+  filter(sexo == 2,
+         cor == 2,
+         uf == 25,
+         rede_de_ensino == 2) %>% 
+  summarise(total_ens_pub = n(),
+            perc_ens_pub_tot = (total_ens_pub/total_brasileiros$total_bra)*100,
+            perc_ens_pub_pb = (total_ens_pub/total_paraibanos$total_pb)*100,
+            perc_ens_pub_mulheres = (total_ens_pub/total_mulheres$total_mul)*100,
+            perc_ens_pub_mulheres_pb = (total_ens_pub/total_mulheres_pb$tot_mul_pb)*100)
+
+# nº de perfis que estudam em escola pública = 222
+# perc com relação ao total de brasileiros = 0.009785551 %
+# perc com relação ao total de paraibanos = 0.3652097 %
+# perc com relação ao total de mulheres brasileiras = 0.0191771 %
+# perc com relação ao total de mulheres paraibanas = 0.7025539 %
+  
+```
+
+
+```{r}
+# Ensino privado
+perfil_ensino_pvd <- dados %>% 
+  filter(sexo == 2,
+         cor == 2,
+         uf == 25,
+         rede_de_ensino == 1) %>% 
+  summarise(total_ens_pvd = n(),
+            perc_ens_pvd_tot = (total_ens_pvd/total_brasileiros$total_bra)*100,
+            perc_ens_pvd_pb = (total_ens_pvd/total_paraibanos$total_pb)*100,
+            perc_ens_pvd_mulheres = (total_ens_pvd/total_mulheres$total_mul)*100,
+            perc_ens_pvd_mulheres_pb = (total_ens_pvd/total_mulheres_pb$tot_mul_pb)*100)
+
+
+# nº de perfis que estudam em escola pública = 84
+# perc com relação ao total de brasileiros = 0.003702641 %
+# perc com relação ao total de paraibanos = 0.1381874 %
+# perc com relação ao total de mulheres brasileiras = 0.007256198 %
+# perc com relação ao total de mulheres paraibanas = 0.2658312 %
+
+```
+
+
+
+
