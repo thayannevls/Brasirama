@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <div class="col">
+  <div class="flex-row">
+    <div>
+      <div v-html="svgTop"/>
       <div>
         <button :class="getClass()" v-on:mouseover="hover(choices[0])">
           {{ !wasHovered(choices[0])?'Escola Privada':'Infelizmente você não está nos 25,5% de seu perfil que conseguiram estudo privado' }}
@@ -10,16 +11,19 @@
         </button>
       </div>
     </div>
-    <div v-html="svg" class="col-right-text"/>
+    <div v-html="svg"/>
   </div>
 </template>
 
 <script>
+import {isolate} from '@/utils'
+
 export default {
   name: 'MultiChoice',
   data () {
     return {
-      svg: require('@/../static/image/tela_4_frase.svg'),
+      svg: isolate('s', require('@/../static/image/tela_4_frase.svg')),
+      svgTop: isolate('t', require('@/../static/image/tela_4_titulo_bts.svg')),
       choices: ['Escola Privada'],
       hovered: []
     }

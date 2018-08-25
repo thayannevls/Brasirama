@@ -1,15 +1,18 @@
 <template>
-  <div>
-    <div class="col">
-      <div v-html="svgTop" class="renda-top-text"/>
+  <div class="flex-row">
+    <div>
+      <div v-html="svgTop"/>
       <transition name="fade" mode="out-in">
-        <p key="msg" v-if="displayMsg" class="renda-ops-text">Só que a renda da família a gente não escolhe...</p>
-        <div key="slider" v-else class="slider" :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">
+        <p key="msg" v-if="displayMsg" class="renda-ops-text">
+          Só que a renda da família a gente não escolhe...
+        </p>
+        <div key="slider" v-else class="slider"
+             :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">
           <div v-html="svgSlider" class="slider-image"/>
         </div>
       </transition>
     </div>
-    <div v-html="svg" class="col-right-text"/>
+    <div v-html="svg"/>
   </div>
 </template>
 
@@ -69,27 +72,16 @@ export default {
 <style>
 .slider {
     position: relative;
+    max-width: 400px;
 }
 .slider-image{
     pointer-events: none;
 }
-.col {
-    max-width: 400px;
-    display: inline-block;
-    margin-top: 50px;
-    padding: 20px;
-}
 .renda-ops-text {
     max-width: 400px;
-    font-weight: bold;
+    font-family: OpenSans-Extrabold;
 }
-.renda-top-text {
-    width: 400px;
-}
-.col-right-text {
-    display: inline-block;
-    margin-left: 150px;
-    margin-top: 50px;
-    width: 400px;
+.top-text {
+    max-width: 400px;
 }
 </style>

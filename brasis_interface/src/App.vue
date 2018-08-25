@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @font-face {
     font-family: "Open Sans";
     src: url("./assets/fonts/OpenSans-Regular.ttf") format("truetype");
@@ -31,6 +31,7 @@ export default {
 
 html {
     background-color: #ffebe7;
+    color: #201b53;
 }
 html, body, #app {
     margin: 0;
@@ -88,5 +89,19 @@ button {
 }
 .fade-enter, .fade-leave-to {
     opacity: 0;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 50px;
+    div {
+        max-width: 400px;
+    }
+}
+
+.text-center {
+    text-align: center;
 }
 </style>

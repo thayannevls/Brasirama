@@ -52,7 +52,6 @@ export default {
   },
   computed: {
     fase: function () {
-      console.log(this.faseNum)
       return this.fases[this.faseNum]
     }
   },
@@ -65,9 +64,6 @@ export default {
       var change = () => {
         this.faseNum += 1
         this.playAnim()
-        if (this.faseNum >= this.fases.length) this.showButton = false
-        // if (this.faseNum < this.fases.length) this.playAnim()
-        // else router.push({name: 'end'})
       }
       if (this.fase.walkOut) {
         this.playAnim('caminhando')
@@ -85,7 +81,7 @@ export default {
       this.anim.playSegments(animFase.interval, true)
       this.anim.loop = animFase.loop
       var animPlayed = () => {
-        this.showButton = true
+        this.showButton = !(this.faseNum >= (this.fases.length - 1))
       }
       this.anim.addEventListener('complete', animPlayed)
       this.anim.addEventListener('loopComplete', animPlayed)
