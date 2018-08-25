@@ -59,13 +59,6 @@ module.exports = {
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },
-      // {
-      //   test: /\.svg$/,
-      //   loader: 'vue-svg-loader',
-      //   options: {
-      //     useSvgo: false, // (optional) default: true
-      //   }
-      // },
       {
         test: /\.svg$/,
         use: 'raw-loader'
