@@ -11,7 +11,7 @@
   },
   "aceno": {
     "interval": [341, 471],
-    "loop": true
+    "loop": false
   },
   "renda": {
     "interval": [475, 605]

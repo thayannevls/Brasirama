@@ -4,7 +4,7 @@
       <div v-html="svgTop"/>
       <transition name="fade" mode="out-in">
         <p key="msg" v-if="displayMsg" class="renda-ops-text">
-          Só que a renda da família a gente não escolhe...
+          Só que a renda da família onde nascemos a gente não escolhe...
         </p>
         <div key="slider" v-else class="slider"
              :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">
