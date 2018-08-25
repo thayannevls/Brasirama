@@ -13,9 +13,9 @@ export default {
 
 <style lang="scss">
 .end-text {
+    font-family: 'OpenSans-Extrabold', sans-serif;
     text-align: center;
     font-size: 30px;
-    font-weight: bold;
     color: #201b53;
     margin: 70px;
 }

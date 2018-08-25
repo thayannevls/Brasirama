@@ -52,12 +52,23 @@ module.exports = {
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
+      },
+      // {
+      //   test: /\.svg$/,
+      //   loader: 'vue-svg-loader',
+      //   options: {
+      //     useSvgo: false, // (optional) default: true
+      //   }
+      // },
+      {
+        test: /\.svg$/,
+        use: 'raw-loader'
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,

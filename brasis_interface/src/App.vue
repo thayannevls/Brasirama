@@ -16,7 +16,18 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@font-face {
+    font-family: "Open Sans";
+    src: url("./assets/fonts/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "OpenSans-Extrabold";
+    src: url("./assets/fonts/OpenSans-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "OpenSans-Semibold";
+    src: url("./assets/fonts/OpenSans-SemiBold.ttf") format("truetype");
+}
 
 html {
     background-color: #ffebe7;
@@ -26,10 +37,19 @@ html, body, #app {
     padding: 0;
 }
 
+svg > * {
+    font-weight: normal !important;
+}
+
 #app {
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-family: OpenSans-Extrabold, Open Sans;
+    font-weight:700;
 }
 
 button:active {

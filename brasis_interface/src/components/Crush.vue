@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="static/image/tela_7_textos.svg" class="image"/>
+    <div v-html="svg"/>
   </div>
 </template>
 
@@ -9,6 +9,7 @@ export default {
   name: 'Crush',
   data () {
     return {
+      svg: require('@/../static/image/tela_7_texto.svg')
     }
   }
 }

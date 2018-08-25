@@ -1,23 +1,28 @@
 <template>
   <div>
     <div class="col">
-      <img src="static/image/tela_3_titulo_slider.svg" class="renda-top-text"/>
+      <div v-html="svgTop" class="renda-top-text"/>
       <transition name="fade" mode="out-in">
         <p key="msg" v-if="displayMsg" class="renda-ops-text">Só que a renda da família a gente não escolhe...</p>
         <div key="slider" v-else class="slider" :style="getStyle()" @mousedown="mousedown" @mouseup="mouseup">
-          <img src="static/image/slider.svg" class="slider-image"/>
+          <div v-html="svgSlider" class="slider-image"/>
         </div>
       </transition>
     </div>
-    <img src="static/image/tela_3_texto.svg" class="col-right-text"/>
+    <div v-html="svg" class="col-right-text"/>
   </div>
 </template>
 
 <script>
+import {isolate} from '@/utils'
+
 export default {
   name: 'OpsDrag',
   data () {
     return {
+      svgTop: isolate('t', require('@/../static/image/tela_3_titulo_slider.svg')),
+      svg: isolate('r', require('@/../static/image/tela_3_texto.svg')),
+      svgSlider: isolate('s', require('@/../static/image/slider.svg')),
       moveSlider: false,
       disabled: false,
       displayMsg: false,

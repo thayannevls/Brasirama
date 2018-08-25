@@ -1,7 +1,7 @@
 <template>
   <div style="display: flex;">
     <div class="col">
-      <img src="static/image/tela_5_titulo_game.svg" class="renda-top-text"/>
+      <div v-html="svgTop" class="renda-top-text"/>
       <div id="cronometro">
         <div v-if="count > 0">
           {{ count }}
@@ -31,18 +31,21 @@
      </button>
     </div>
     <div class="col">
-      <img src="static/image/tela_5_texto.svg" class="col-right-text" style="margin: 0;padding-left: 25%;flex-basis: 70%"/>
+      <div v-html="svg" class="col-right-text" style="margin: 0;padding-left: 25%;flex-basis: 70%"/>
     </div>
   </div>
 </template>
 
 <script>
 import * as animationData from '../assets/corredor.json'
+import {isolate} from '@/utils'
 
 export default {
   name: 'Schoolbar',
   data () {
     return {
+      svgTop: isolate('t', require('@/../static/image/tela_5_titulo_game.svg')),
+      svg: isolate('s', require('@/../static/image/tela_5_texto.svg')),
       progressGame: 0,
       max: 100,
       count: 5,

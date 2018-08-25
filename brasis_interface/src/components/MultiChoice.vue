@@ -10,7 +10,7 @@
         </button>
       </div>
     </div>
-    <img src="static/image/tela_4_frase.svg" class="col-right-text"/>
+    <div v-html="svg" class="col-right-text"/>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
   name: 'MultiChoice',
   data () {
     return {
+      svg: require('@/../static/image/tela_4_frase.svg'),
       choices: ['Escola Privada'],
       hovered: []
     }

@@ -1,14 +1,15 @@
 <template>
   <div>
-    <img src="static/image/tela_1_textos.svg" class="image"/>
+    <div v-html="svg"/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Location',
+  name: 'Mulher',
   data () {
     return {
+      svg: require('@/../static/image/tela_1_texto.svg')
     }
   }
 }
