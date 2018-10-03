@@ -270,11 +270,6 @@ tot_pb <- dadosPNAD %>%
 ```
 
 
-```{r}
-tot_bra_al
-```
-
-
 Alfabetização
 
 ```{r}
