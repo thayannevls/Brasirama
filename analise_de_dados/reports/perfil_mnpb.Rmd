@@ -137,19 +137,10 @@ perfil_ensino_pvd <- dados %>%
   - media
   - mediana
 
-```{r}
-perfil_salarios <- dadosPNAD %>% 
-  filter(sexo == 2,
-         cor == 2,
-         uf == 25) %>%
-  group_by(valor_salario) %>% 
-  summarise(media_salarial = mean(valor_salario))
-```
-
 
 ```{r}
 # modularizar, arg extra = is_carteira_assinada = 1, not = 2
-perfil_trabalho <- dadosPNAD %>% 
+perfil_trabalho <- dados %>% 
   filter(sexo == 2,
          cor == 2,
          uf == 25,
@@ -167,7 +158,7 @@ perfil_trabalho <- dadosPNAD %>%
   
 ```{r}
 # modularizar, arg = nivel_escolar_tri_atual e nivel_escolar
-perfil_alfabetizada <- dadosPNAD %>%  
+perfil_alfabetizada <- dados %>%  
   filter(sexo == 2,
          uf == 25,
          cor == 2,
