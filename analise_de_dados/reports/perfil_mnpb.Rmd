@@ -1,5 +1,5 @@
 ---
-title: "Brasirama"
+title: "Brasirama - paraibanas negras"
 output: html_notebook
 ---
 
@@ -13,6 +13,7 @@ library(here)
 ```{r setup, message=FALSE, warning=FALSE}
 dados = read_csv(here("data/dados_2017_todos.csv"))
 ```
+
 
 ```{r}
 total_brasileiros <- dados %>% 
@@ -55,6 +56,8 @@ total_mulheres_pb <- dados %>%
 
 #### Números para paraibanas negras
 ```{r}
+
+# modularizar
 perfil <- dados %>% 
   filter(sexo == 2,
          cor == 2,
@@ -123,6 +126,46 @@ perfil_ensino_pvd <- dados %>%
 
 ```
 
+## Trabalho
+- carteira assinada ou não
+  - media salarial
+  - mediana salarial
+  - quantidade de pessoas do modelo 
+- renda
+  - comparar entre homem e mulher
+  - renda familiar
+  - media
+  - mediana
 
 
+```{r}
+# modularizar, arg extra = is_carteira_assinada = 1, not = 2
+perfil_trabalho <- dados %>% 
+  filter(sexo == 2,
+         cor == 2,
+         uf == 25,
+         is_carteira_assinada == 1) %>%
+  summarise(qnt_assinada = n(),
+            media_salarial = mean(valor_salario),
+            mediana_salarial = median(valor_salario)) # talvez tenha que agrupar
+```
 
+
+## Índices de alfabetização
+- Índices: alfabetizada, fundamental, médio, superior
+  - Quantidade
+  - Percentual
+  
+```{r}
+# modularizar, arg = nivel_escolar_tri_atual e nivel_escolar
+perfil_alfabetizada <- dados %>%  
+  filter(sexo == 2,
+         uf == 25,
+         cor == 2,
+         nivel_escolar_tri_atual  %in% 1:2 | nivel_escolar %in% 1:2) %>% 
+  summarise(count = n())
+```
+  
+  
+## Moradia
+- Com quem mora (condicao_domicilio)
