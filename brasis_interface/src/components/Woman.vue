@@ -6,10 +6,10 @@
 
 <script>
 export default {
-  name: 'Cor',
+  name: 'Woman',
   data () {
     return {
-      svg: require('@/../static/image/tela_2_texto.svg')
+      svg: require('@/../static/image/tela_1_texto.svg')
     }
   }
 }
