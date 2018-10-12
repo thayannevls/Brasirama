@@ -58,10 +58,11 @@ Algumas características que pretendemos usar nos cálculos das porcentagens par
 ## Contribuidores 
 
 - [Andrés Martano](https://github.com/andresmrm)
-- [Juan Barros](https://github.com/JuanBarros2)
-- [Ivyna Santino](https://github.com/ivynasantino) 
-- [Sheilla Silva]()
 - [Danynel Rocha](https://github.com/dnrocha1)
 - [Fanny Vieira](https://github.com/FannyVieira)
-- [Priscila Brito]()
+- [Ivyna Santino](https://github.com/ivynasantino) 
+- [Juan Barros](https://github.com/JuanBarros2)
 - [Otávio]()
+- [Priscila Brito]()
+- [Sheilla Silva]()
+- Thayanne Sousa(https://github.com/thayannevls)
