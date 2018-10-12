@@ -65,4 +65,4 @@ Algumas características que pretendemos usar nos cálculos das porcentagens par
 - [Otávio]()
 - [Priscila Brito]()
 - [Sheilla Silva]()
-- Thayanne Sousa(https://github.com/thayannevls)
+- [Thayanne Sousa](https://github.com/thayannevls)
