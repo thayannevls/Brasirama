@@ -58,7 +58,7 @@ Algumas características que pretendemos usar nos cálculos das porcentagens par
 ## Contribuidores 
 
 - [Andrés Martano](https://github.com/andresmrm)
-- [Danynel Rocha](https://github.com/dnrocha1)
+- [Daniyel Rocha](https://github.com/dnrocha1)
 - [Fanny Vieira](https://github.com/FannyVieira)
 - [Ivyna Santino](https://github.com/ivynasantino) 
 - [Juan Barros](https://github.com/JuanBarros2)
