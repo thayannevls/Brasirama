@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import MainView from '@/components/MainView'
-import IntroView from '@/components/IntroView'
-import EndView from '@/components/EndView'
+import Main from '@/views/Main'
+import Intro from '@/views/Intro'
+import End from '@/views/End'
 
 Vue.use(Router)
 
@@ -11,17 +11,17 @@ export default new Router({
     {
       path: '/',
       name: 'intro',
-      component: IntroView
+      component: Intro
     },
     {
       path: '/main',
       name: 'main',
-      component: MainView
+      component: Main
     },
     {
       path: '/fim',
       name: 'end',
-      component: EndView
+      component: End
     }
   ]
 })

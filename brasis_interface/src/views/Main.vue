@@ -13,17 +13,17 @@
 </template>
 
 <script>
-import OpsDrag from './OpsDrag.vue'
-import * as animationData from '../assets/mulher.json'
-import animRanges from '../assets/anims.json'
-import MultiChoice from './MultiChoice.vue'
-import Schoolbar from './Schoolbar.vue'
-import Location from './Location.vue'
-import Cor from './Cor.vue'
-import Mulher from './Mulher.vue'
-import EndView from './EndView.vue'
-import Trabalho from './Trabalho.vue'
-import Crush from './Crush.vue'
+import OpsDrag from '@/components/OpsDrag.vue'
+import * as animationData from '@/assets/mulher.json'
+import animRanges from '@/assets/anims.json'
+import MultiChoice from '@/components/MultiChoice.vue'
+import Schoolbar from '@/components/Schoolbar.vue'
+import Location from '@/components/Location.vue'
+import SkinColor from '@/components/SkinColor.vue'
+import Woman from '@/components/Woman.vue'
+import EndView from '@/views/End.vue'
+import Job from '@/components/Job.vue'
+import Crush from '@/components/Crush.vue'
 
 export default {
   name: 'MainView',
@@ -32,12 +32,12 @@ export default {
       faseNum: 0,
       fases: [
         {name: 'local', msg: 'nasceu em João Pessoa', component: Location},
-        {name: 'sexo', msg: 'mulher', anim: 'mulher-aparece', component: Mulher, walkOut: true},
-        {name: 'cor', msg: 'de cor negra', anim: 'aceno', component: Cor, walkOut: true},
+        {name: 'sexo', msg: 'mulher', anim: 'mulher-aparece', component: Woman, walkOut: true},
+        {name: 'cor', msg: 'de cor negra', anim: 'aceno', component: SkinColor, walkOut: true},
         {name: 'renda', msg: 'quanto você quer que sua família receba?', component: OpsDrag, walkOut: true},
         {name: 'escolaridade-rede', anim: 'escolaridade', component: MultiChoice},
         {name: 'escolaridade-corre', anim: 'escolaridade', component: Schoolbar, walkOut: true},
-        {name: 'trabalho', component: Trabalho, walkOut: true},
+        {name: 'trabalho', component: Job, walkOut: true},
         {name: 'crush', msg: '<3', component: Crush, walkOut: true},
         {name: 'fim', msg: '<3', anim: 'caminhando', component: EndView}
       ],
