@@ -3,13 +3,14 @@
     <div>
       <div v-html="svgTop"/>
       <div>
-        <button :class="getClass()" v-on:mouseover="hover(choices[0])">
-          {{ !wasHovered(choices[0])?'Escola Privada':'Infelizmente você não está nos 25,5% de seu perfil que conseguiram estudo privado' }}
+        <button :class="getClass()" v-on:click="hover(choices[0])">
+          {{ !wasHovered(choices[0])?'Escola Privada':'Infelizmente você não está nos 25,5% de seu perfil que conseguiram estudo privado.' }}
         </button>
-        <button class="escola-btn">
-          Escola Pública
-        </button>
+        
       </div>
+      <button :class="getClass()" v-on:click="hover(choices[1])">
+          {{ !wasHovered(choices[1])?'Escola Pública':'Você faz parte dos 74,5% de seu perfil que estão estudando na rede pública.' }}
+        </button>
     </div>
     <div v-html="svg"/>
   </div>
@@ -24,7 +25,7 @@ export default {
     return {
       svg: isolate('s', require('@/../static/image/tela_4_frase.svg')),
       svgTop: isolate('t', require('@/../static/image/tela_4_titulo_bts.svg')),
-      choices: ['Escola Privada'],
+      choices: ['Escola Privada', 'Escola Pública'],
       hovered: []
     }
   },
@@ -61,7 +62,7 @@ export default {
     padding: 15px;
     text-transform: uppercase;
     font-size: 14px;
-    background: rgb(255, 163, 143);
+    background: rgb(255, 163, 143);;
     border: solid 0px rgb(255, 163, 143);
     box-shadow: 0px 9px 0px #fd4d59;
 }
